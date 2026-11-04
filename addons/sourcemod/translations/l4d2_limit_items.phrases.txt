@@ -1,0 +1,16 @@
+"Phrases"
+{
+	"ItemMenu_Title"
+	{
+		"en"	"Items on the Map"
+		"pt"	"Itens no mapa"
+		"es"	"Items en el mapa"
+	}
+
+	"ItemMenu_Close"
+	{
+		"en"	"Press any key to close."
+		"pt"	"Pressione qualquer tecla para fechar."
+		"es"	"Presiona cualquier tecla para cerrar."
+	}
+}

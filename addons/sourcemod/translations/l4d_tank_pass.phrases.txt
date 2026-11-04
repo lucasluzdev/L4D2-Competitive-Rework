@@ -1,0 +1,133 @@
+"Phrases"
+{
+
+"phrase1"
+{
+	"en"	"{default}Type {green}!pass{default} to give the Tank to another player."
+	"ru"	"{default}Напишите {green}!pass{default}, чтобы передать Танка."
+	"hu"	"{default}Írd be {green}!pass{default} hogy átad a Tankot."
+	"es"	"{default}Escribe {green}!pass{default} para pasar el Tanque a otro jugador."
+	"pt"	"{default}Digite {green}!pass{default} para passar o Tank para outro jogador."
+}
+
+"phrase2"
+{
+	"en"	"The Tank can be given to another player before the Frustration meter runs out."
+	"ru"	"Танка можно передать только на первом контроле."
+	"hu"	"A Tank átadható frusztráció előtt."
+	"es"	"El Tanque se puede entregar a otro jugador antes de que se agote el medidor de frustración."
+	"pt"	"O Tank pode ser passado para outro jogador antes que a barra de Frustração se esgote."
+}
+
+"phrase3"
+{
+	"#format" "{1:N},{2:N}"
+	"en"	"{olive}{1}{default} passed the Tank to {olive}{2}"
+	"ru"	"{olive}{1}{default} передал Танка игроку {olive}{2}"
+	"hu"	"{olive}{1}{default} átadta a Tankot {olive}{2}-nak"
+	"es"	"{olive}{1}{default} pasó el Tanque a {olive}{2}"
+	"pt"	"{olive}{1}{default} passou o Tank para {olive}{2}"
+}
+
+"phrase4"
+{
+	"en"	"Who will take the Tank?"
+	"ru"	"Кому передать Танка?"
+	"hu"	"Ki veszi át a Tankot?"
+	"es"	"¿Quién tomará el Tanque?"
+	"pt"	"Quem vai assumir o Tank?"
+}
+
+"phrase5"
+{
+	"en"	"Do you want to play as the Tank?"
+	"ru"	"Вы хотите сыграть Танком?"
+	"hu"	"Szeretnél Tankként játszani?"
+	"es"	"¿Quieres jugar como el Tanque?"
+	"pt"	"Você quer jogar como Tank?"
+}
+
+"phrase6"
+{
+	"#format" "{1:N}"
+	"en"	"{olive}{1}{default} didn't agree to be the Tank."
+	"ru"	"{olive}{1}{default} не согласился быть Танком."
+	"hu"	"{olive}{1}{default} nem egyezett bele hogy Tank lehessen."
+	"es"	"{olive}{1}{default} no estuvo de acuerdo en ser el Tanque."
+	"pt"	"{olive}{1}{default} não aceitou ser o Tank."
+}
+
+"phrase7"
+{
+	"en"	"The Tank can't be passed right now."
+	"ru"	"Передача Танка сейчас не доступна."
+	"hu"	"A Tank most még nem adható át."
+	"es"	"El Tanque no se puede pasar en este momento."
+	"pt"	"O Tank não pode ser passado neste momento."
+}
+
+"phrase8"
+{
+	"en"	"The Tank can't be passed when it's on fire."
+	"ru"	"Танка можно передать если он не горит."
+	"hu"	"A Tank átadható ha nincs felgyújtva."
+	"es"	"El Tanque no se puede pasar cuando está en llamas."
+	"pt"	"O Tank não pode ser passado enquanto estiver em chamas."
+}
+
+"phrase9"
+{
+	"#format" "{1:N}"
+	"en"	"{default}An admin has passed the Tank to {olive}{1}"
+	"ru"	"{default}Админ передал Танка игроку {olive}{1}"
+	"hu"	"{default}Egy admin átadta a tankot {olive}{1}-nak"
+	"es"	"{default}Un administrador ha pasado el Tanque a {olive}{1}"
+	"pt"	"{default}Um administrador passou o Tank para {olive}{1}"
+}
+
+"phrase10"
+{
+	"en"	"Pass the Tank"
+	"ru"	"Передать контроль Танка"
+	"hu"	"Add át a Tankot"
+	"es"	"Pasar el Tanque"
+	"pt"	"Passar o Tank"
+}
+
+"phrase11"
+{
+	"en"	"The Tank can only be passed when it hasn't received any damage."
+	"ru"	"Танка можно передать если он не получил урона."
+	"hu"	"A Tank átadható ha nem szenved el sebzést."
+	"es"	"El Tanque sólo se puede pasar cuando no ha recibido ningún daño."
+	"pt"	"O Tank só pode ser passado se ainda não tiver recebido dano."
+}
+
+"phrase12"
+{
+	"en"	"Control Tank Bot"
+	"ru"	"Взять Танка бота под контроль"
+	"hu"	"Vedd át a Bot Tankot"
+	"es"	"Control Tanque Bot"
+	"pt"	"Controlar o Tank Bot"
+}
+
+"phrase13"
+{
+	"#format" "{1:d},{2:d}"
+	"en"	"{default}The Tank pass limit reached [{green}{1}/{2}{default}]."
+	"ru"	"{default}Достигнут лимит передачи Танка [{green}{1}/{2}{default}]."
+	"es"	"{default}Se alcanzó el límite de pases del Tanque [{green}{1}/{2}{default}]."
+	"pt"	"{default}O limite de transferências do Tank foi atingido [{green}{1}/{2}{default}]."
+}
+
+"phrase14"
+{
+	"#format" "{1:N},{2:N},{3:d},{4:d}"
+	"en"	"{olive}{1}{default} passed the Tank to {olive}{2} {default}[{green}{3}/{4}{default}]."
+	"ru"	"{olive}{1}{default} передал Танка игроку {olive}{2} {default}[{green}{3}/{4}{default}]."
+	"hu"	"{olive}{1}{default} átadta a Tankot {olive}{2}-nak {default}[{green}{3}/{4}{default}]."
+	"es"	"{olive}{1}{default} pasó el Tanque a {olive}{2} {default}[{green}{3}/{4}{default}]."
+	"pt"	"{olive}{1}{default} passou o Tank para {olive}{2} {default}[{green}{3}/{4}{default}]."
+}
+}

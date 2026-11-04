@@ -1,5 +1,36 @@
 "MatchModes"
 {
+	"Vanilla Configs"
+	{
+		"vanillaplus"
+		{
+			"name" "Vanilla+"
+		}
+		"vanillaplus_map"
+		{
+			"name" "Vanilla+ (ZoneMod Map Changes)"
+		}
+		"vanillaplus_t2"
+		{
+			"name" "Vanilla+ T2 Limit"
+		}
+		"vanillaplus_t2_map"
+		{
+			"name" "Vanilla+ T2 Limit (ZoneMod Map Changes)"
+		}
+		"vanillaplus_si"
+		{
+			"name" "Vanilla+ with Infected Swap (server liloso)"
+		}
+		"t1kits"
+		{
+			"name" "T1 + Medkits"
+		}
+		"t1kits_map"
+		{
+			"name" "T1 + Medkits (ZoneMod Map Changes)"
+		}
+	}
 	"ZoneMod Configs"
 	{
 		"zonemod"

@@ -1,0 +1,44 @@
+"Phrases"
+{
+    "Info_AFK"
+    {
+        "pt"    "{lightgreen}★ {green}!afk {default}ou {green}!away{default} > espectador"
+        "en"    "{lightgreen}★ {green}!afk {default}or {green}!away{default} > spectator"
+        "es"    "{lightgreen}★ {green}!afk {default}o {green}!away{default} > espectador"
+    }
+    "Info_Team"
+    {
+        "pt"    "{lightgreen}★ {green}!survivors{default} > time sobrevivente | {green}!infected{default} > time infectado"
+        "en"    "{lightgreen}★ {green}!survivors{default} > join survivors | {green}!infected{default} > join infected"
+        "es"    "{lightgreen}★ {green}!survivors{default} > equipo superviviente | {green}!infected{default} > equipo infectado"
+    }
+    "Info_TankPass"
+    {
+        "pt"    "{lightgreen}★ {green}!pass{default}, {green}!tankpass{default} ou {green}!passtank{default} > passar o tank"
+        "en"    "{lightgreen}★ {green}!pass{default}, {green}!tankpass{default} or {green}!passtank{default} > pass the tank"
+        "es"    "{lightgreen}★ {green}!pass{default}, {green}!tankpass{default} o {green}!passtank{default} > pasar el tank"
+    }
+    "Info_TankBuster"
+    {
+        "pt"    "{lightgreen}★ {green}!tankbuster{default} > obter armas T1 (uzi, pump shotgun)"
+        "en"    "{lightgreen}★ {green}!tankbuster{default} > get T1 weapons (uzi, pump shotgun)"
+        "es"    "{lightgreen}★ {green}!tankbuster{default} > obtener armas T1 (uzi, pump shotgun)"
+    }
+    "Info_TankRules"
+    {
+        "pt"    "{lightgreen}★ {green}Tank:{default} 8000 hp, pedras divididas entre {olive}M2/E/R{default}, sem haymaker"
+        "en"    "{lightgreen}★ {green}Tank:{default} 8000 hp, rocks split between {olive}M2/E/R{default}, haymaker disabled"
+        "es"    "{lightgreen}★ {green}Tank:{default} 8000 hp, piedras divididas entre {olive}M2/E/R{default}, haymaker deshabilitado"
+    }
+    "Info_TankFlow"
+    {
+        "pt"    "{lightgreen}★ {green}!tank{default} > ver onde {olive}tank/witch{default} vao aparecer"
+        "en"    "{lightgreen}★ {green}!tank{default} > see where {olive}tank/witch{default} will spawn"
+        "es"    "{lightgreen}★ {green}!tank{default} > ver donde apareceran {olive}tank/witch{default}"
+    }
+    "Info_Reminder"
+    {
+        "pt"    "{lightgreen}★ {green}!info{default} > ver comandos e informacoes do servidor"
+        "en"    "{lightgreen}★ {green}!info{default} > view server commands and information"
+        "es"    "{lightgreen}★ {green}!info{default} > ver comandos e informacion del servidor"
+}}

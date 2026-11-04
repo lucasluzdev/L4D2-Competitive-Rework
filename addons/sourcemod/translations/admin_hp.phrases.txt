@@ -1,0 +1,22 @@
+﻿/*
+	Following named colors are supported:
+	 - {default}	(whilte)
+	 - {green}		(olive color)
+	 - {olive}		(green color)
+	 - {lightgreen}	(light green)
+	 - {red}		(red) - There must be at least one player or bot in infected team，or red will turn into {green} color
+	 - {blue}		(blue) - There must be at least one player or bot in survivor team，or blue will turn into {green} color 
+	 Warning:  2 of (Blue, Red, Lightgreen) colors can not be used together in one sentence
+*/
+
+"Phrases"
+{
+	"Message"
+	{
+		"#format"		"{1:N}"
+		"en"		"[{olive}TS{default}] Adm {lightgreen}{1} {default}restores {olive}all survivors {green}FULL HP"
+		"zho"		"[{olive}TS{default}] 管理員 {lightgreen}{1} {default}回復 {olive}所有倖存者 {green}血量"
+		"chi"		"[{olive}TS{default}] 管理员 {lightgreen}{1} {default}回复 {olive}所有幸存者 {green}血量"
+		"pt"		"[{olive}TS{default}] Adm {lightgreen}{1} {default}restaurou a {olive}vida de todos os sobreviventes {green}para o máximo"
+	}
+}

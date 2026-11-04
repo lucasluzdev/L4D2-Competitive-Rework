@@ -1,0 +1,107 @@
+"Phrases"
+{
+	// =====================================================
+	// TANK
+	// =====================================================
+
+	"TankIsHereBOT"
+	{
+		"en"		"The {green}Tank{default} has spawned!"
+		"pt"		"O {green}Tank{default} apareceu!"
+		"es"		"¡El {green}Tank{default} apareció!"
+	}
+
+	"TankIsHere"
+	{
+		"#format"	"{1:N}"
+
+		"en"		"{green}Tank{default} controlled by {olive}{1}"
+		"pt"		"{green}Tank{default} controlado por {olive}{1}"
+		"es"		"{green}Tank{default} controlado por {olive}{1}"
+	}
+
+	"PassTankNotify"
+	{
+		"en"		"Use {olive}!pass | !passtank | !tankpass{default} to pass the Tank"
+		"pt"		"Use {olive}!pass | !passtank | !tankpass{default} para passar o Tank"
+		"es"		"Usa {olive}!pass | !passtank | !tankpass{default} para pasar el Tank"
+	}
+
+	// =====================================================
+	// WITCH
+	// =====================================================
+
+	"WitchIsHere"
+	{
+		"#format"	"{1:d}"
+
+		"en"		"{green}Witch{default} spawned at {olive}[{1}%%]"
+		"pt"		"{green}Witch{default} apareceu em {olive}[{1}%%]"
+		"es"		"La {green}Witch{default} apareció en {olive}[{1}%%]"
+	}
+
+	// =====================================================
+	// BOSS INFO
+	// =====================================================
+
+	"BossSurvivorFlow"
+	{
+		"#format"	"{1:d}"
+
+		"en"		"{green}[Boss]{default} Survivors advanced: {olive}[{1}%%]{default} of the map"
+		"pt"		"{green}[Boss]{default} Sobreviventes avançaram: {olive}[{1}%%]{default} do mapa"
+		"es"		"{green}[Boss]{default} Supervivientes avanzaron: {olive}[{1}%%]{default} del mapa"
+	}
+
+	"BossTankSpawn"
+	{
+		"#format"	"{1:d}"
+
+		"en"		"{green}[Boss]{default} Tank spawn: {olive}[{1}%%]"
+		"pt"		"{green}[Boss]{default} Spawn do Tank: {olive}[{1}%%]"
+		"es"		"{green}[Boss]{default} Spawn del Tank: {olive}[{1}%%]"
+	}
+
+	"BossTankNone"
+	{
+		"en"		"{green}[Boss]{default} Tank spawn: {olive}[None]"
+		"pt"		"{green}[Boss]{default} Spawn do Tank: {olive}[Nenhum]"
+		"es"		"{green}[Boss]{default} Spawn del Tank: {olive}[Ninguno]"
+	}
+
+	"BossWitchSpawn"
+	{
+		"#format"	"{1:d}"
+
+		"en"		"{green}[Boss]{default} Witch spawn: {olive}[{1}%%]"
+		"pt"		"{green}[Boss]{default} Spawn da Witch: {olive}[{1}%%]"
+		"es"		"{green}[Boss]{default} Spawn de la Witch: {olive}[{1}%%]"
+	}
+
+	"BossWitchNone"
+	{
+		"en"		"{green}[Boss]{default} Witch spawn: {olive}[None]"
+		"pt"		"{green}[Boss]{default} Spawn da Witch: {olive}[Nenhuma]"
+		"es"		"{green}[Boss]{default} Spawn de la Witch: {olive}[Ninguna]"
+	}
+
+	// =====================================================
+	// REROLL
+	// =====================================================
+
+	"BossRerollBlocked"
+	{
+		"en"		"{green}[Boss]{default} Survivors already left saferoom."
+		"pt"		"{green}[Boss]{default} Os sobreviventes já saíram da saferoom."
+		"es"		"{green}[Boss]{default} Los supervivientes ya salieron del saferoom."
+	}
+
+	"BossRerolled"
+	{
+		"#format"	"{1:d},{2:d}"
+
+		"en"		"{green}[Boss]{default} Boss spawns rerolled -> Tank: {olive}[{1}%%] {default}| Witch: {olive}[{2}%%]"
+		"pt"		"{green}[Boss]{default} Bosses atualizados -> Tank: {olive}[{1}%%] {default}| Witch: {olive}[{2}%%]"
+		"es"		"{green}[Boss]{default} Bosses rerolleados -> Tank: {olive}[{1}%%] {default}| Witch: {olive}[{2}%%]"
+	}
+}

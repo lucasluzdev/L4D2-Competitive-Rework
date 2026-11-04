@@ -1,0 +1,363 @@
+"Phrases"
+{
+	"Mix_CannotServer"
+	{
+		"en"		"This command cannot be used by the server."
+		"es"		"Este comando no puede ser utilizado por el servidor."
+		"pt"		"Este comando não pode ser usado pelo servidor."
+	}
+
+	"Mix_GameStarted"
+	{
+		"en"		"Can't start a mix, the game has started!"
+		"es"		"¡No se puede iniciar un mix, el juego ya comenzó!"
+		"pt"		"Não é possível iniciar um mix, o jogo já começou!"
+	}
+
+	"Mix_NotEnoughPlayers"
+	{
+		"en"		"Can't start a mix, not enough players ({red}%d{default}/{green}%d{default})."
+		"es"		"No se puede iniciar el mix, no hay suficientes jugadores ({red}%d{default}/{green}%d{default})."
+		"pt"		"Não é possível iniciar o mix, não há jogadores suficientes ({red}%d{default}/{green}%d{default})."
+	}
+
+	"Mix_OneVsOne"
+	{
+		"en"		"Why you two start a mix in 1v1? Joke Game."
+		"es"		"¿Por qué ustedes dos quieren iniciar un mix 1v1? ¡Partida de broma!"
+		"pt"		"Por que vocês dois querem iniciar um mix 1v1? Partida de brincadeira!"
+	}
+
+	"Mix_NotEnoughSlots"
+	{
+		"en"		"Can't start a mix, not enough game slots ({green}%d{default}-{green}%d{default})."
+		"es"		"No se puede iniciar el mix, no hay suficientes espacios ({green}%d{default}-{green}%d{default})."
+		"pt"		"Não é possível iniciar o mix, não há vagas suficientes ({green}%d{default}-{green}%d{default})."
+	}
+
+	"Mix_SpectatorCannotCancel"
+	{
+		"en"		"Spectators cannot cancel a mix."
+		"es"		"Los espectadores no pueden cancelar un mix."
+		"pt"		"Espectadores não podem cancelar um mix."
+	}
+
+	"Mix_NothingToCancel"
+	{
+		"en"		"Nothing to cancel."
+		"es"		"No hay nada que cancelar."
+		"pt"		"Não há nada para cancelar."
+	}
+
+	"Mix_AlreadyInProgress"
+	{
+		"en"		"A mix is already in process."
+		"es"		"Ya hay un mix en proceso."
+		"pt"		"Já existe um mix em andamento."
+	}
+
+	"Mix_SpectatorCannotStart"
+	{
+		"en"		"Spectators cannot start a mix."
+		"es"		"Los espectadores no pueden iniciar un mix."
+		"pt"		"Espectadores não podem iniciar um mix."
+	}
+
+	"Mix_TeamAlreadyRequested"
+	{
+		"en"		"Your team already requested a mix."
+		"es"		"Tu equipo ya solicitó un mix."
+		"pt"		"Seu time já solicitou um mix."
+	}
+
+	"Mix_TeamAgreed"
+	{
+		"en"		"The %s have agreed to start the mix."
+		"es"		"Los %s han aceptado iniciar el mix."
+		"pt"		"O time %s concordou em iniciar o mix."
+	}
+
+	"Mix_TeamRequested"
+	{
+		"en"		"The %s have requested to start a mix."
+		"es"		"O time %s solicitou iniciar um mix."
+		"pt"		"O time %s solicitou iniciar um mix."
+	}
+
+	"Mix_OppositeMustAgree"
+	{
+		"en"		"The %s must agree by typing {green}!mix."
+		"es"		"Los %s deben aceptar escribiendo {green}!mix."
+		"pt"		"O time %s deve concordar digitando {green}!mix."
+	}
+
+	"Mix_RequestCancelled"
+	{
+		"en"		"{lightgreen}%N {olive}cancelled the mix request."
+		"es"		"{lightgreen}%N {olive}canceló la solicitud de mix."
+		"pt"		"{lightgreen}%N {olive}cancelou a solicitação de mix."
+	}
+
+	"Mix_RequestTimeout"
+	{
+		"en"		"Mix request timed out."
+		"es"		"La solicitud de mix expiró."
+		"pt"		"A solicitação de mix expirou."
+	}
+
+	"Mix_AdminForced"
+	{
+		"en"		"Admin %N forces to start a mix!"
+		"es"		"¡El administrador %N ha forzado el inicio de un mix!"
+		"pt"		"O administrador %N forçou o início de um mix!"
+	}
+
+	"Mix_Captain1"
+	{
+		"en"		"First captain: {lightgreen}%N{default} with {green}%i {default}votes."
+		"es"		"Primer capitán: {lightgreen}%N{default} con {green}%i {default}votos."
+		"pt"		"Primeiro capitão: {lightgreen}%N{default} com {green}%i {default}votos."
+	}
+
+	"Mix_Captain2"
+	{
+		"en"		"Second captain: {lightgreen}%N{default} with {green}%i {default}votes."
+		"es"		"Segundo capitán: {lightgreen}%N{default} con {green}%i {default}votos."
+		"pt"		"Segundo capitão: {lightgreen}%N{default} com {green}%i {default}votos."
+	}
+
+	"Mix_Captain1Left"
+	{
+		"en"		"Surprise! First Chosen Captain left the server, stopped the mix process."
+		"es"		"¡Sorpresa! El primer capitán elegido salió del servidor. El mix fue cancelado."
+		"pt"		"Surpresa! O primeiro capitão escolhido saiu do servidor. O mix foi cancelado."
+	}
+
+	"Mix_Captain2Left"
+	{
+		"en"		"Surprise! Second Chosen Captain left the server, stopped the mix process."
+		"es"		"¡Sorpresa! El segundo capitán elegido salió del servidor. El mix fue cancelado."
+		"pt"		"Surpresa! O segundo capitão escolhido saiu do servidor. O mix foi cancelado."
+	}
+
+	"Mix_TargetLeft"
+	{
+		"en"		"This player has left the server, choose again!"
+		"es"		"¡Este jugador salió del servidor, elige nuevamente!"
+		"pt"		"Este jogador saiu do servidor, escolha novamente!"
+	}
+
+	"Mix_TargetNotGame"
+	{
+		"en"		"Target is not in game!"
+		"es"		"¡El jugador seleccionado ya no está en la partida!"
+		"pt"		"O jogador selecionado não está mais na partida!"
+	}
+
+	"Mix_NotEnoughDuringSelection"
+	{
+		"en"		"Not enough players in server ({red}%d{default}/{green}%d{default}), stopped the mix process."
+		"es"		"No hay suficientes jugadores ({red}%d{default}/{green}%d{default}), el mix fue cancelado."
+		"pt"		"Não há jogadores suficientes ({red}%d{default}/{green}%d{default}), o mix foi cancelado."
+	}
+
+	"Mix_CaptainsSelecting_ABABAB"
+	{
+		"en"		"Captains will now begin to choose players (A-B-A-B-A-B)."
+		"es"		"Los capitanes comenzarán a elegir jugadores (A-B-A-B-A-B)."
+		"pt"		"Os capitães começarão a escolher os jogadores (A-B-A-B-A-B)."
+	}
+
+	"Mix_CaptainsSelecting_ABBAAB"
+	{
+		"en"		"Captains will now begin to choose players (A-B-B-A-A-B)."
+		"es"		"Los capitanes comenzarán a elegir jugadores (A-B-B-A-A-B)."
+		"pt"		"Os capitães começarão a escolher os jogadores (A-B-B-A-A-B)."
+	}
+
+	"Mix_CaptainsSelecting_ABBABA"
+	{
+		"en"		"Captains will now begin to choose players (A-B-B-A-B-A)."
+		"es"		"Los capitanes comenzarán a elegir jugadores (A-B-B-A-B-A)."
+		"pt"		"Os capitães começarão a escolher os jogadores (A-B-B-A-B-A)."
+	}
+
+	"Mix_SelectedSurvivor"
+	{
+		"en"		"{blue}%N {default}selected: {green}%N"
+		"es"		"{blue}%N {default}seleccionó a: {green}%N"
+		"pt"		"{blue}%N {default}escolheu: {green}%N"
+	}
+
+	"Mix_SelectedInfected"
+	{
+		"en"		"{red}%N {default}selected: {green}%N"
+		"es"		"{red}%N {default}seleccionó a: {green}%N"
+		"pt"		"{red}%N {default}escolheu: {green}%N"
+	}
+
+	"Mix_TeamsReady"
+	{
+		"en"		"Teams set, let the mix begin!"
+		"es"		"¡Los equipos están listos, que comience el mix!"
+		"pt"		"Os times estão definidos, que comece o mix!"
+	}
+
+	"Mix_SurvivorCaptain"
+	{
+		"en"		"Sur. Captain: {lightgreen}%N{default}, Inf. Captain: {lightgreen}%N"
+		"es"		"Capitán Supervivientes: {lightgreen}%N{default}, Capitán Infectados: {lightgreen}%N"
+		"pt"		"Capitão Sobreviventes: {lightgreen}%N{default}, Capitão Infectados: {lightgreen}%N"
+	}
+
+	"Mix_CannotChooseCaptain"
+	{
+		"en"		"Unable to randomly select captain in survivor/infected team."
+		"es"		"No se pudo seleccionar aleatoriamente un capitán en los equipos."
+		"pt"		"Não foi possível selecionar aleatoriamente os capitães dos times."
+	}
+
+	"Mix_SurvivorCaptainLeft"
+	{
+		"en"		"Surprise! First Captain left the server, stopped the mix process."
+		"es"		"¡Sorpresa! El primer capitán salió del servidor. El mix fue cancelado."
+		"pt"		"Surpresa! O primeiro capitão saiu do servidor. O mix foi cancelado."
+	}
+
+	"Mix_InfectedCaptainLeft"
+	{
+		"en"		"Surprise! Second Captain left the server, stopped the mix process."
+		"es"		"¡Sorpresa! El segundo capitán salió del servidor. El mix fue cancelado."
+		"pt"		"Surpresa! O segundo capitán saiu do servidor. O mix foi cancelado."
+	}
+
+	// =================================================
+	// SHUFFLE
+	// =================================================
+
+	"Shuffle_GameStarted"
+	{
+		"en"		"You cannot shuffle teams after the game has started."
+		"es"		"No puedes mezclar los equipos después de que comenzó la partida."
+		"pt"		"Você não pode embaralhar os times depois que a partida começou."
+	}
+
+	"Shuffle_MixInProgress"
+	{
+		"en"		"A mix is currently in progress."
+		"es"		"Actualmente hay un mix en progreso."
+		"pt"		"Um mix está em andamento."
+	}
+
+	"Shuffle_Spectator"
+	{
+		"en"		"Spectators cannot start or vote for a shuffle."
+		"es"		"Los espectadores no pueden iniciar ni votar por un shuffle."
+		"pt"		"Espectadores não podem iniciar ou votar em um shuffle."
+	}
+
+	"Shuffle_AdminForced"
+	{
+		"en"		"Admin {lightgreen}%N{default} forced a team shuffle!"
+		"es"		"¡El administrador {lightgreen}%N{default} forzó el shuffle de los equipos!"
+		"pt"		"O administrador {lightgreen}%N{default} forçou o embaralhamento dos times!"
+	}
+
+	"Shuffle_AlreadyVoted"
+	{
+		"en"		"You have already voted."
+		"es"		"Ya has votado."
+		"pt"		"Você já votou."
+	}
+
+	"Shuffle_NotEnoughVotePlayers"
+	{
+		"en"		"Not enough players to start a shuffle vote."
+		"es"		"No hay suficientes jugadores para iniciar una votación de shuffle."
+		"pt"		"Não há jogadores suficientes para iniciar uma votação de shuffle."
+	}
+
+	"Shuffle_Wants"
+	{
+		"en"		"{lightgreen}%N{default} wants to shuffle the teams!"
+		"es"		"¡{lightgreen}%N{default} quiere mezclar los equipos!"
+		"pt"		"{lightgreen}%N{default} quer embaralhar os times!"
+	}
+
+	"Shuffle_VoteInstructions"
+	{
+		"en"		"Type {green}!shuffle{default} to vote YES."
+		"es"		"Escribe {green}!shuffle{default} para votar SÍ."
+		"pt"		"Digite {green}!shuffle{default} para votar SIM."
+	}
+
+	"Shuffle_Majority"
+	{
+		"en"		"Need a majority: {green}%d{default}/{olive}%d{default} active players."
+		"es"		"Se necesita mayoría: {green}%d{default}/{olive}%d{default} jugadores activos."
+		"pt"		"É necessária maioria: {green}%d{default}/{olive}%d{default} jogadores ativos."
+	}
+
+	"Shuffle_Voted"
+	{
+		"en"		"{lightgreen}%N{default} voted YES. ({green}%d{default}/{olive}%d{default})"
+		"es"		"{lightgreen}%N{default} votó SÍ. ({green}%d{default}/{olive}%d{default})"
+		"pt"		"{lightgreen}%N{default} votou SIM. ({green}%d{default}/{olive}%d{default})"
+	}
+
+	"Shuffle_MajorityReached"
+	{
+		"en"		"Majority reached! Shuffling teams..."
+		"es"		"¡Se alcanzó la mayoría! Mezclando los equipos..."
+		"pt"		"Maioria alcançada! Embaralhando os times..."
+	}
+
+	"Shuffle_VoteFailed"
+	{
+		"en"		"Vote failed. {green}%d{default}/{olive}%d{default} votes."
+		"es"		"La votación falló. {green}%d{default}/{olive}%d{default} votos."
+		"pt"		"A votação falhou. {green}%d{default}/{olive}%d{default} votos."
+	}
+
+	"Shuffle_Randomizing"
+	{
+		"en"		"Randomizing {green}%d{default} players ({blue}%d{default} Survivors / {red}%d{default} Infected)..."
+		"es"		"Mezclando aleatoriamente {green}%d{default} jugadores ({blue}%d{default} Supervivientes / {red}%d{default} Infectados)..."
+		"pt"		"Embaralhando {green}%d{default} jogadores ({blue}%d{default} Sobreviventes / {red}%d{default} Infectados)..."
+	}
+
+	"Shuffle_NotEnoughPlayers"
+	{
+		"en"		"Not enough players to shuffle."
+		"es"		"No hay suficientes jugadores para realizar el shuffle."
+		"pt"		"Não há jogadores suficientes para realizar o shuffle."
+	}
+
+	"Shuffle_BothTeamsRequired"
+	{
+		"en"		"Both teams need at least one player."
+		"es"		"Ambos equipos necesitan al menos un jugador."
+		"pt"		"Ambos os times precisam ter pelo menos um jogador."
+	}
+
+	"Shuffle_Complete"
+	{
+		"en"		"Teams have been shuffled!"
+		"es"		"¡Los equipos han sido mezclados!"
+		"pt"		"Os times foram embaralhados!"
+	}
+
+	"Shuffle_Survivors"
+	{
+		"en"		"{blue}Survivors:"
+		"es"		"{blue}Supervivientes:"
+		"pt"		"{blue}Sobreviventes:"
+	}
+
+	"Shuffle_Infected"
+	{
+		"en"		"{red}Infected:"
+		"es"		"{red}Infectados:"
+		"pt"		"{red}Infectados:"
+	}
+}

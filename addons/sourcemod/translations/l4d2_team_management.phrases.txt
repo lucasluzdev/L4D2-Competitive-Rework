@@ -1,0 +1,65 @@
+"Phrases"
+{
+	"Move Player To Spectator"
+	{
+		"en"	"{olive}Move Player to Spectator"
+		"pt"	"{olive}Mover Jogador para Espectador"
+		"es"	"{olive}Mover Jugador a Espectador"
+	}
+
+	"No Playable Players"
+	{
+		"en"	"{red}No players{default} are currently on Survivors or Infected."
+		"pt"	"{red}Nenhum jogador{default} está atualmente nos Sobreviventes ou Infectados."
+		"es"	"{red}No hay jugadores{default} actualmente en Supervivientes o Infectados."
+	}
+
+	"Player No Longer In Game"
+	{
+		"en"	"{red}That player is no longer in the game."
+		"pt"	"{red}Esse jogador não está mais no jogo."
+		"es"	"{red}Ese jugador ya no está en el juego."
+	}
+
+	"Player Not Playable"
+	{
+		"en"	"{red}%N{default} is no longer on a playable team."
+		"pt"	"{red}%N{default} não está mais em uma equipe jogável."
+		"es"	"{red}%N{default} ya no está en un equipo jugable."
+	}
+
+	"Survivors"
+	{
+		"en"	"{blue}Survivors"
+		"pt"	"{blue}Sobreviventes"
+		"es"	"{blue}Supervivientes"
+	}
+
+	"Infected"
+	{
+		"en"	"{red}Infected"
+		"pt"	"{red}Infectados"
+		"es"	"{red}Infectados"
+	}
+
+	"Moving Player To Spectator"
+	{
+		"en"	"Moving {green}%N{default} to {grey}Spectator{default}..."
+		"pt"	"Movendo {green}%N{default} para {grey}Espectador{default}..."
+		"es"	"Moviendo a {green}%N{default} a {grey}Espectador{default}..."
+	}
+
+	"Could Not Move Player"
+	{
+		"en"	"{red}Could not move the player to Spectator."
+		"pt"	"{red}Não foi possível mover o jogador para Espectador."
+		"es"	"{red}No se pudo mover al jugador a Espectador."
+	}
+
+	"You Were Moved To Spectator"
+	{
+		"en"	"You have been moved to {grey}Spectator{default}."
+		"pt"	"Você foi movido para {grey}Espectador{default}."
+		"es"	"Has sido movido a {grey}Espectador{default}."
+	}
+}

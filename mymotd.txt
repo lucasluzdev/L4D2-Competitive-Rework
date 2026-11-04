@@ -1,1 +1,62 @@
-http://sirpleaseny.site.nfoservers.com/comprework.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SAFE ROOM | Regras e Comandos</title>
+<style type="text/css">
+body { margin:0; padding:0; background:#101010; color:#eeeeee; font-family:Arial,Helvetica,sans-serif; font-size:13px; }
+table { border-collapse:collapse; }
+.wrap { width:96%; max-width:780px; margin:0 auto; }
+.brand { background:#171717; border-bottom:4px solid #a90000; padding:14px 18px 12px; }
+.brandname { color:#ffffff; font-family:Impact,'Arial Black',Arial,sans-serif; font-weight:bold; font-size:46px; letter-spacing:2px; line-height:45px; }
+.red { color:#c60909; }
+.kicker { font-size:10px; font-weight:bold; letter-spacing:3px; color:#bbbbbb; }
+.content { padding:12px 14px 18px; }
+.panel { background:#1b1b1b; border:1px solid #393939; margin:0 0 12px; }
+.heading { background:#242424; color:#ffffff; border-left:5px solid #bd0b0b; padding:9px 11px; font-family:Impact,'Arial Black',Arial,sans-serif; font-size:20px; letter-spacing:1px; }
+.inner { padding:8px 12px 11px; }
+.rule { padding:5px 2px; border-bottom:1px solid #2b2b2b; }
+.mark { color:#d20d0d; font-weight:bold; padding-right:8px; }
+.cmd { color:#ffffff; font-weight:bold; white-space:nowrap; }
+.desc { color:#c8c8c8; }
+.commandrow { padding:6px 0; border-bottom:1px solid #2b2b2b; }
+.note { border:1px solid #6b1212; background:#2a1717; padding:10px; color:#f1eeee; line-height:1.5; }
+.footer { background:#a90000; padding:11px; text-align:center; font-family:Impact,'Arial Black',Arial,sans-serif; font-size:24px; font-weight:bold; letter-spacing:3px; color:white; }
+.small { color:#888888; font-size:10px; text-align:center; padding:8px; }
+</style>
+</head>
+<body>
+<table class="wrap" width="96%" cellspacing="0" cellpadding="0" border="0"><tr><td>
+<div class="brand">
+  <div class="kicker">LEFT 4 DEAD 2 &nbsp; / &nbsp; VERSUS</div>
+  <div class="brandname">SAFE <span class="red">+</span> ROOM</div>
+  <div style="font-size:11px;color:#aaa;letter-spacing:2px;margin-top:6px;">SOBREVIVA. JOGUE LIMPO. TRABALHE EM EQUIPE.</div>
+</div>
+<div class="content">
+  <div class="panel">
+    <div class="heading">REGRAS</div>
+    <div class="inner">
+      <div class="rule"><span class="mark">&#9632;</span> Respeite os jogadores!</div>
+      <div class="rule"><span class="mark">&#9632;</span> Sem comportamento t&oacute;xico!</div>
+      <div class="rule"><span class="mark">&#9632;</span> N&atilde;o atrapalhe o pr&oacute;prio time!</div>
+      <div class="rule" style="border-bottom:0;"><span class="mark">&#9632;</span> N&atilde;o abuse de bugs!</div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="heading">COMANDOS</div>
+    <div class="inner">
+      <div class="commandrow"><span class="cmd">!afk</span> <span class="desc">&mdash; Ir para espectador</span></div>
+      <div class="commandrow"><span class="cmd">!survivors</span> <span class="desc">&mdash; Entrar no time sobrevivente</span></div>
+      <div class="commandrow"><span class="cmd">!infected</span> <span class="desc">&mdash; Entrar no time infectado</span></div>
+      <div class="commandrow"><span class="cmd">!pass / !tankpass / !passtank</span><br><span class="desc">Passar o Tank para um membro da equipe</span></div>
+      <div class="commandrow"><span class="cmd">!tank</span><br><span class="desc">Ver onde Tank/Witch v&atilde;o aparecer e o progresso atual dos sobreviventes</span></div>
+      <div class="commandrow" style="border-bottom:0;"><span class="cmd">!tankbuster</span> <span class="desc">&mdash; Obter armas T1</span></div>
+    </div>
+  </div>
+  <div class="note"><strong style="color:#ffffff;">&#9760; REGRAS DO TANK</strong><br>Tank com <strong>8000 HP</strong>. Pedras divididas entre <strong>M2, E e R</strong>.<br><strong style="color:#ff5353;">SEM HAYMAKER!</strong></div>
+</div>
+<div class="footer">BOM JOGO!</div>
+<div class="small">SAFE ROOM &nbsp; | &nbsp; LEFT 4 DEAD 2</div>
+</td></tr></table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+"Phrases"
+{
+	"KILL"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{lightgreen}{1} {default}Killed {olive}{2}{default}."
+		"zho"		"{lightgreen}{1} {default}星爆氣流斬 {olive}{2}{default}."
+		"chi"		"{lightgreen}{1} {default}星爆气流斩 {olive}{2}{default}."
+		"ru"		"{lightgreen}{1} {default}убивает: {olive}{2}{default}."
+		"pt"		"{lightgreen}{1} {default}matou {olive}{2}{default}."
+	}
+
+	"FF_dealt (C)"
+	{
+		"#format"	"{1:d},{2:s},{3:d}"
+		"en"		"You did {green}{1}{default} friendly fire damage to {lightgreen}{2}{default}.({green}{3} {default}in total)"
+		"zho"		"你剛造成 {green}{1}{default} 滴血給 {lightgreen}{2}{default}.（累計 {green}{3} {default}點血）"
+		"chi"		"你刚造成 {green}{1}{default} 滴血给 {lightgreen}{2}{default}.（累计 {green}{3} {default}滴血）"
+		"ru"		"Вы нанесли {green}{1}{default} ед. урона своему: {lightgreen}{2}{default}.({3} in total)"
+		"pt"		"Você causou {green}{1}{default} de dano aliado em {lightgreen}{2}{default}. ({green}{3}{default} no total)"
+	}
+
+	"FF_dealt"
+	{
+		"#format"	"{1:d},{2:s},{3:d}"
+		"en"		"You did {1} friendly fire damage to {2}.({3} in total)"
+		"zho"		"你剛造成 {1} 滴血給 {2}.（累計 {3} 點血）"
+		"chi"		"你刚造成 {1} 滴血给 {2}.（累计 {3} 滴血）"
+		"ru"		"Вы нанесли {1}ед. урона своему: {2}.({3} in total)"
+		"pt"		"Você causou {1} de dano aliado em {2}. ({3} no total)"
+	}
+
+	"FF_receive (C)"
+	{
+		"#format"	"{1:s},{2:d},{3:d}"
+		"en"		"{lightgreen}{1}{default} did {green}{2}{default} friendly fire damage to you.({green}{3} {default}in total)"
+		"zho"		"{lightgreen}{1}{default} 造成了 {green}{2}{default} 滴血給你.（累計 {green}{3} {default}點血）"
+		"chi"		"{lightgreen}{1}{default} 造成了 {green}{2}{default} 滴血给你.（累计 {green}{3} {default}滴血）"
+		"ru"		"{lightgreen}{1}{default} наносит {green}{2}{default} ед. урона по вам({3} in total)"
+		"pt"		"{lightgreen}{1}{default} causou {green}{2}{default} de dano aliado em você. ({green}{3}{default} no total)"
+	}
+
+	"FF_receive"
+	{
+		"#format"	"{1:s},{2:d},{3:d}"
+		"en"		"{1} did {2} friendly fire damage to you.({3} in total)"
+		"zho"		"{1} 造成了 {2} 滴血給你.（累計 {3} 點血）"
+		"chi"		"{1} 造成了 {2} 滴血给你.（累计 {3} 滴血）"
+		"ru"		"{1} наносит {2} ед. урона по вам({3} in total)"
+		"pt"		"{1} causou {2} de dano aliado em você. ({3} no total)"
+	}
+}
