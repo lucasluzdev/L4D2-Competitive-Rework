@@ -1,0 +1,20 @@
+"ACSR_Campaigns"
+{
+    // Edite a ordem aqui. Exclua uma entrada para remover a campanha do menu.
+    // prefix = comeco do nome de QUALQUER capitulo da campanha (ex.: c10m).
+    // A campanha deve estar instalada. Depois: sm_acsr_reloadmaps
+    "01" { "english" "No Mercy"       "portuguese" "Sem Misericórdia"      "start" "c8m1_apartment"      "final" "c8m5_rooftop"           "prefix" "c8m" }
+    "02" { "english" "Crash Course"    "portuguese" "Rota de Colisão"      "start" "c9m1_alleys"         "final" "c9m2_lots"              "prefix" "c9m" }
+    "03" { "english" "Death Toll"      "portuguese" "Contagem de Corpos"   "start" "c10m1_caves"         "final" "c10m5_houseboat"        "prefix" "c10m" }
+    "04" { "english" "Dead Air"        "portuguese" "Aeromorto"           "start" "c11m1_greenhouse"    "final" "c11m5_runway"           "prefix" "c11m" }
+    "05" { "english" "Blood Harvest"   "portuguese" "Colheita de Sangue"  "start" "c12m1_hilltop"       "final" "c12m5_cornfield"        "prefix" "c12m" }
+    "06" { "english" "The Sacrifice"   "portuguese" "O Sacrifício"         "start" "c7m1_docks"          "final" "c7m3_port"              "prefix" "c7m" }
+    "07" { "english" "Dead Center"     "portuguese" "Shopping da Morte"    "start" "c1m1_hotel"          "final" "c1m4_atrium"            "prefix" "c1m" }
+    "08" { "english" "The Passing"     "portuguese" "A Passagem"           "start" "c6m1_riverbank"      "final" "c6m3_port"              "prefix" "c6m" }
+    "09" { "english" "Dark Carnival"   "portuguese" "Parque Sombrio"       "start" "c2m1_highway"        "final" "c2m5_concert"           "prefix" "c2m" }
+    "10" { "english" "Swamp Fever"     "portuguese" "Febre do Pântano"     "start" "c3m1_plankcountry"   "final" "c3m4_plantation"        "prefix" "c3m" }
+    "11" { "english" "Hard Rain"       "portuguese" "Tempestade"           "start" "c4m1_milltown_a"     "final" "c4m5_milltown_escape"   "prefix" "c4m" }
+    "12" { "english" "The Parish"      "portuguese" "A Paróquia"           "start" "c5m1_waterfront"     "final" "c5m5_bridge"            "prefix" "c5m" }
+    "13" { "english" "Cold Stream"     "portuguese" "Córregos Gelados"     "start" "c13m1_alpinecreek"   "final" "c13m4_cutthroatcreek"  "prefix" "c13m" }
+    "14" { "english" "The Last Stand"  "portuguese" "O Último Confronto"   "start" "c14m1_junkyard"      "final" "c14m2_lighthouse"       "prefix" "c14m" }
+}
