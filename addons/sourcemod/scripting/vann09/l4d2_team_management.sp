@@ -50,6 +50,12 @@ public void OnPluginStart()
 		ADMFLAG_GENERIC,
 		"Opens a menu allowing an admin to move a player to spectator."
 	);
+	RegAdminCmd(
+		"sm_mts",
+		Command_MoveToSpec,
+		ADMFLAG_GENERIC,
+		"Opens a menu allowing an admin to move a player to spectator."
+	);
 }
 
 /*

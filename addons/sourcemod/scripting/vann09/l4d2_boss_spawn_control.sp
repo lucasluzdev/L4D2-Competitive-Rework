@@ -585,11 +585,7 @@ public void TankNotify(Event event, const char[] name, bool dontBroadcast)
 			{
 				if (IsValidClient(i))
 				{
-					if (i == client)
-					{
-						CPrintToChat(i, "%t", "PassTankNotify");
-					}
-					else
+					if (i != client)
 					{
 						CPrintToChat(i, "%t", "TankIsHere", client);
 					}

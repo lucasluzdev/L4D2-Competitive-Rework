@@ -20,13 +20,6 @@
 		"es"		"{green}Tank{default} controlado por {olive}{1}"
 	}
 
-	"PassTankNotify"
-	{
-		"en"		"Use {olive}!pass | !passtank | !tankpass{default} to pass the Tank"
-		"pt"		"Use {olive}!pass | !passtank | !tankpass{default} para passar o Tank"
-		"es"		"Usa {olive}!pass | !passtank | !tankpass{default} para pasar el Tank"
-	}
-
 	// =====================================================
 	// WITCH
 	// =====================================================
