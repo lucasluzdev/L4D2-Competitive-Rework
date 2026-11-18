@@ -42,6 +42,29 @@ void CVS_OnModuleStart()
 	RegServerCmd("confogl_addcvar", CVS_AddCvar_Cmd, "Add a ConVar to be set by Confogl");
 	RegServerCmd("confogl_setcvars", CVS_SetCvars_Cmd, "Starts enforcing ConVars that have been added.");
 	RegServerCmd("confogl_resetcvars", CVS_ResetCvars_Cmd, "Resets enforced ConVars.  Cannot be used during a match!");
+
+	// SafeRoom: when the server empties, L4D2 restarts the scenario (L4D_Scenario_Restart) on the
+	// same map and resets several cvars (z_tank_health, z_ghost_delay_*, director_*_convert_pills...)
+	// to their defaults. Enforced cvars were only re-applied on map change, so re-apply them on
+	// every round start too.
+	HookEvent("round_start", CVS_RoundStart_Event, EventHookMode_PostNoCopy);
+}
+
+static void CVS_RoundStart_Event(Event hEvent, const char[] sEventName, bool bDontBroadcast)
+{
+	if (bTrackingStarted) {
+		// Small delay so the game finishes its own reset before we re-apply.
+		CreateTimer(1.0, CVS_ReapplyCvars_Timer, _, TIMER_FLAG_NO_MAPCHANGE);
+	}
+}
+
+static Action CVS_ReapplyCvars_Timer(Handle hTimer)
+{
+	if (bTrackingStarted) {
+		SetEnforcedCvars();
+	}
+
+	return Plugin_Stop;
 }
 
 void CVS_OnModuleEnd()
