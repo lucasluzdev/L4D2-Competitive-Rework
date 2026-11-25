@@ -4,7 +4,7 @@
 #include <sourcemod>
 #include <adminmenu>
 #include <sdktools>
-#include <multicolors>
+#include <colors>
 #define PLUGIN_VERSION "3.0"
 
 enum

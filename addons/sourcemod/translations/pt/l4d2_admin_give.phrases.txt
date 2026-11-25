@@ -1,0 +1,215 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"pt"		"{default}[{olive}Itens{default}]"
+	}
+	"Menu_Category"
+	{
+		"pt"		"Dar item - categoria"
+	}
+	"Menu_Items"
+	{
+		"pt"		"Dar item - {1}"
+	}
+	"Menu_Target"
+	{
+		"pt"		"Dar {1} para:"
+	}
+	"All_Survivors"
+	{
+		"pt"		"Todos os sobreviventes"
+	}
+	"Bot"
+	{
+		"pt"		" (bot)"
+	}
+	"Has"
+	{
+		"pt"		"tem"
+	}
+	"Gave"
+	{
+		"pt"		"{blue}{1}{default} deu {green}{2}{default} para {blue}{3}{default}."
+	}
+	"Unavailable"
+	{
+		"pt"		"Esse sobrevivente nao esta mais disponivel."
+	}
+	"Unknown_Item"
+	{
+		"pt"		"Item desconhecido \"{1}\". Use !give sem argumentos para abrir o menu."
+	}
+	"No_Match"
+	{
+		"pt"		"Nenhum sobrevivente vivo encontrado para \"{1}\"."
+	}
+	"Usage"
+	{
+		"pt"		"Uso: sm_give <item> <alvo>"
+	}
+	"Cat_0"
+	{
+		"pt"		"Cura"
+	}
+	"Cat_1"
+	{
+		"pt"		"Arremessaveis"
+	}
+	"Cat_2"
+	{
+		"pt"		"Armas primarias"
+	}
+	"Cat_3"
+	{
+		"pt"		"Armas secundarias"
+	}
+	"Cat_4"
+	{
+		"pt"		"Outros"
+	}
+	"first_aid_kit"
+	{
+		"pt"		"Kit medico"
+	}
+	"defibrillator"
+	{
+		"pt"		"Desfibrilador"
+	}
+	"pain_pills"
+	{
+		"pt"		"Pilulas"
+	}
+	"adrenaline"
+	{
+		"pt"		"Adrenalina"
+	}
+	"health"
+	{
+		"pt"		"Vida cheia"
+	}
+	"pipe_bomb"
+	{
+		"pt"		"Bomba caseira"
+	}
+	"molotov"
+	{
+		"pt"		"Molotov"
+	}
+	"vomitjar"
+	{
+		"pt"		"Bile"
+	}
+	"smg"
+	{
+		"pt"		"SMG"
+	}
+	"smg_silenced"
+	{
+		"pt"		"SMG silenciada"
+	}
+	"pumpshotgun"
+	{
+		"pt"		"Escopeta de bombeamento"
+	}
+	"shotgun_chrome"
+	{
+		"pt"		"Escopeta cromada"
+	}
+	"rifle"
+	{
+		"pt"		"M16"
+	}
+	"rifle_ak47"
+	{
+		"pt"		"AK-47"
+	}
+	"rifle_desert"
+	{
+		"pt"		"SCAR"
+	}
+	"autoshotgun"
+	{
+		"pt"		"Escopeta automatica"
+	}
+	"shotgun_spas"
+	{
+		"pt"		"Escopeta SPAS"
+	}
+	"hunting_rifle"
+	{
+		"pt"		"Rifle de caca"
+	}
+	"sniper_military"
+	{
+		"pt"		"Sniper militar"
+	}
+	"pistol"
+	{
+		"pt"		"Pistola"
+	}
+	"pistol_magnum"
+	{
+		"pt"		"Magnum"
+	}
+	"katana"
+	{
+		"pt"		"Katana"
+	}
+	"machete"
+	{
+		"pt"		"Facao"
+	}
+	"fireaxe"
+	{
+		"pt"		"Machado"
+	}
+	"crowbar"
+	{
+		"pt"		"Pe de cabra"
+	}
+	"baseball_bat"
+	{
+		"pt"		"Taco de beisebol"
+	}
+	"cricket_bat"
+	{
+		"pt"		"Taco de criquete"
+	}
+	"frying_pan"
+	{
+		"pt"		"Frigideira"
+	}
+	"electric_guitar"
+	{
+		"pt"		"Guitarra"
+	}
+	"tonfa"
+	{
+		"pt"		"Cassetete"
+	}
+	"golfclub"
+	{
+		"pt"		"Taco de golfe"
+	}
+	"knife"
+	{
+		"pt"		"Faca"
+	}
+	"ammo"
+	{
+		"pt"		"Recarga de municao"
+	}
+	"upgradepack_incendiary"
+	{
+		"pt"		"Pacote de municao incendiaria"
+	}
+	"upgradepack_explosive"
+	{
+		"pt"		"Pacote de municao explosiva"
+	}
+	"laser_sight"
+	{
+		"pt"		"Mira laser"
+	}
+}

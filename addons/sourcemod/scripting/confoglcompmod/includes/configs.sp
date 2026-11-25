@@ -83,6 +83,12 @@ bool SetCustomCfg(const char[] cfgname)
 	return true;
 }
 
+// SafeRoom: name of the loaded custom config ("" when using the default one).
+void GetCustomCfgName(char[] buffer, const int maxlength)
+{
+	strcopy(buffer, maxlength, customCfgPath[0] ? customCfgName : "");
+}
+
 void BuildConfigPath(char[] buffer, const int maxlength, const char[] sFileName)
 {
 	if (customCfgPath[0]) {

@@ -4,7 +4,7 @@
 #include <sourcemod>
 #include <sdktools>
 #include <sdkhooks>
-#include <multicolors>
+#include <colors>
 #define PLUGIN_VERSION			"1.9-2026/3/7"
 
 public Plugin myinfo = 

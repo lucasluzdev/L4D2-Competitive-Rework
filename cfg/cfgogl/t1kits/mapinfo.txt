@@ -1,1 +1,1 @@
-../zonemod/mapinfo.txt
+../vanillaplus_base/mapinfo.txt

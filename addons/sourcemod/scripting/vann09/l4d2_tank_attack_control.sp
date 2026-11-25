@@ -8,7 +8,7 @@
 
 #include <sourcemod>
 #include <sdktools>
-#include <multicolors>
+#include <colors>
 
 #define PLUGIN_VERSION "0.7.2"
 
@@ -59,7 +59,7 @@ public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast)
     }
 }
 
-// Resolve each phrase in the player's language, then let MultiColors
+// Resolve each phrase in the player's language, then let colors.inc
 // process {blue}, {olive}, {default}, etc. No manual color replacements.
 void PrintLocalizedColored(int client, const char[] key)
 {

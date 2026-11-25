@@ -2,7 +2,7 @@
 #pragma newdecls required
 
 #include <sourcemod>
-#include <multicolors>
+#include <colors>
 
 #define PLUGIN_VERSION "1.6"
 

@@ -1,0 +1,215 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"es"		"{default}[{olive}Objetos{default}]"
+	}
+	"Menu_Category"
+	{
+		"es"		"Dar objeto - categoría"
+	}
+	"Menu_Items"
+	{
+		"es"		"Dar objeto - {1}"
+	}
+	"Menu_Target"
+	{
+		"es"		"Dar {1} a:"
+	}
+	"All_Survivors"
+	{
+		"es"		"Todos los supervivientes"
+	}
+	"Bot"
+	{
+		"es"		" (bot)"
+	}
+	"Has"
+	{
+		"es"		"tiene"
+	}
+	"Gave"
+	{
+		"es"		"{blue}{1}{default} le dio {green}{2}{default} a {blue}{3}{default}."
+	}
+	"Unavailable"
+	{
+		"es"		"Ese superviviente ya no está disponible."
+	}
+	"Unknown_Item"
+	{
+		"es"		"Objeto desconocido \"{1}\". Usa !give sin argumentos para abrir el menú."
+	}
+	"No_Match"
+	{
+		"es"		"Ningún superviviente vivo coincide con \"{1}\"."
+	}
+	"Usage"
+	{
+		"es"		"Uso: sm_give <objeto> <objetivo>"
+	}
+	"Cat_0"
+	{
+		"es"		"Curación"
+	}
+	"Cat_1"
+	{
+		"es"		"Arrojadizos"
+	}
+	"Cat_2"
+	{
+		"es"		"Armas principales"
+	}
+	"Cat_3"
+	{
+		"es"		"Armas secundarias"
+	}
+	"Cat_4"
+	{
+		"es"		"Otros"
+	}
+	"first_aid_kit"
+	{
+		"es"		"Botiquín"
+	}
+	"defibrillator"
+	{
+		"es"		"Desfibrilador"
+	}
+	"pain_pills"
+	{
+		"es"		"Pastillas"
+	}
+	"adrenaline"
+	{
+		"es"		"Adrenalina"
+	}
+	"health"
+	{
+		"es"		"Vida completa"
+	}
+	"pipe_bomb"
+	{
+		"es"		"Bomba casera"
+	}
+	"molotov"
+	{
+		"es"		"Molotov"
+	}
+	"vomitjar"
+	{
+		"es"		"Bilis"
+	}
+	"smg"
+	{
+		"es"		"Subfusil"
+	}
+	"smg_silenced"
+	{
+		"es"		"Subfusil con silenciador"
+	}
+	"pumpshotgun"
+	{
+		"es"		"Escopeta de corredera"
+	}
+	"shotgun_chrome"
+	{
+		"es"		"Escopeta cromada"
+	}
+	"rifle"
+	{
+		"es"		"M16"
+	}
+	"rifle_ak47"
+	{
+		"es"		"AK-47"
+	}
+	"rifle_desert"
+	{
+		"es"		"SCAR"
+	}
+	"autoshotgun"
+	{
+		"es"		"Escopeta automática"
+	}
+	"shotgun_spas"
+	{
+		"es"		"Escopeta SPAS"
+	}
+	"hunting_rifle"
+	{
+		"es"		"Rifle de caza"
+	}
+	"sniper_military"
+	{
+		"es"		"Francotirador militar"
+	}
+	"pistol"
+	{
+		"es"		"Pistola"
+	}
+	"pistol_magnum"
+	{
+		"es"		"Magnum"
+	}
+	"katana"
+	{
+		"es"		"Katana"
+	}
+	"machete"
+	{
+		"es"		"Machete"
+	}
+	"fireaxe"
+	{
+		"es"		"Hacha"
+	}
+	"crowbar"
+	{
+		"es"		"Palanca"
+	}
+	"baseball_bat"
+	{
+		"es"		"Bate de béisbol"
+	}
+	"cricket_bat"
+	{
+		"es"		"Bate de críquet"
+	}
+	"frying_pan"
+	{
+		"es"		"Sartén"
+	}
+	"electric_guitar"
+	{
+		"es"		"Guitarra"
+	}
+	"tonfa"
+	{
+		"es"		"Porra"
+	}
+	"golfclub"
+	{
+		"es"		"Palo de golf"
+	}
+	"knife"
+	{
+		"es"		"Cuchillo"
+	}
+	"ammo"
+	{
+		"es"		"Recarga de munición"
+	}
+	"upgradepack_incendiary"
+	{
+		"es"		"Paquete de munición incendiaria"
+	}
+	"upgradepack_explosive"
+	{
+		"es"		"Paquete de munición explosiva"
+	}
+	"laser_sight"
+	{
+		"es"		"Mira láser"
+	}
+}

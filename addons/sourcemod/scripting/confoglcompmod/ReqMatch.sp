@@ -33,7 +33,8 @@ static ConVar
 	RM_hConfigFile_On	   = null,
 	RM_hConfigFile_Plugins = null,
 	RM_hConfigFile_Off	   = null,
-	RM_hUnloadOnEmpty	   = null;
+	RM_hUnloadOnEmpty	   = null,
+	RM_hReturnOnEmpty	   = null;
 
 void RM_APL()
 {
@@ -56,6 +57,9 @@ void RM_OnModuleStart()
 	// SafeRoom: with 0 the match stays loaded when the server empties, so the next player
 	// does not trigger a new match load + map restart while connected.
 	RM_hUnloadOnEmpty	   = CreateConVarEx("match_unload_on_empty", "1", "Unload the match mode when the last human leaves the server (0 = keep it loaded).", _, true, 0.0, true, 1.0);
+	// SafeRoom: with match_unload_on_empty 0, switch back to match_autoconfig once the server has been
+	// empty for a while, so the map restart of the switch happens with nobody connected.
+	RM_hReturnOnEmpty	   = CreateConVarEx("match_return_on_empty", "0", "When the server stays empty, switch the loaded match to match_autoconfig if it is a different one (needs match_unload_on_empty 0).", _, true, 0.0, true, 1.0);
 
 	// RegConsoleCmd("sm_match", RM_Cmd_Match);
 	RegAdminCmd("sm_forcematch", RM_Cmd_ForceMatch, ADMFLAG_CONFIG, "Forces the game to use match mode");
@@ -589,10 +593,48 @@ void RM_OnClientDisconnect(int client)
 
 	if (!RM_hUnloadOnEmpty.BoolValue)
 	{
+		if (RM_hReturnOnEmpty.BoolValue)
+		{
+			CreateTimer(RESETMINTIME, RM_ReturnToDefaultTimer);
+		}
+
 		return;
 	}
 
 	CreateTimer(RESETMINTIME, RM_MatchResetTimer);
+}
+
+// SafeRoom: same flow as sm_forcechangematch, run only while the server is empty.
+static Action RM_ReturnToDefaultTimer(Handle hTimer)
+{
+	if (!RM_bIsMatchModeLoaded || IsHumansOnServer() || !RM_HasPluginManager(0))
+	{
+		return Plugin_Stop;
+	}
+
+	char sDefault[128], sCurrent[128];
+	RM_hAutoCfg.GetString(sDefault, sizeof(sDefault));
+	GetCustomCfgName(sCurrent, sizeof(sCurrent));
+
+	if (sDefault[0] == '\0' || StrEqual(sDefault, sCurrent, false))
+	{
+		return Plugin_Stop;
+	}
+
+	if (!RM_UpdateCfgOn(sDefault, false))
+	{
+		LogError("[%s] match_return_on_empty: config '%s' not found.", RM_MODULE_NAME, sDefault);
+		return Plugin_Stop;
+	}
+
+	LogMessage("[%s] Server empty, switching match from '%s' back to '%s'.", RM_MODULE_NAME, sCurrent, sDefault);
+
+	// The unload reloads every plugin, us included. RM_OnModuleStart then loads the new config.
+	RM_hChangeMap.SetString("");
+	RM_hChangeMatch.SetString(sDefault);
+	RM_Match_Unload(true);
+
+	return Plugin_Stop;
 }
 
 static Action RM_MatchResetTimer(Handle hTimer)

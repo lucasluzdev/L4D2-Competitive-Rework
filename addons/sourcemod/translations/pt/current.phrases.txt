@@ -1,0 +1,11 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"pt"		"<{olive}Progresso{default}>"
+	}
+	"Current"
+	{
+		"pt"		"{green}%d%%{default}"
+	}
+}

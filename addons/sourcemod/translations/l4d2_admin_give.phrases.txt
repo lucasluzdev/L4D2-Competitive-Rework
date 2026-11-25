@@ -1,0 +1,220 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"en"		"{default}[{olive}Give{default}]"
+	}
+	"Menu_Category"
+	{
+		"en"		"Give item - category"
+	}
+	"Menu_Items"
+	{
+		"#format"	"{1:s}"
+		"en"		"Give item - {1}"
+	}
+	"Menu_Target"
+	{
+		"#format"	"{1:s}"
+		"en"		"Give {1} to:"
+	}
+	"All_Survivors"
+	{
+		"en"		"All survivors"
+	}
+	"Bot"
+	{
+		"en"		" (bot)"
+	}
+	"Has"
+	{
+		"en"		"has"
+	}
+	"Gave"
+	{
+		"#format"	"{1:N},{2:s},{3:N}"
+		"en"		"{blue}{1}{default} gave {green}{2}{default} to {blue}{3}{default}."
+	}
+	"Unavailable"
+	{
+		"en"		"That survivor is no longer available."
+	}
+	"Unknown_Item"
+	{
+		"#format"	"{1:s}"
+		"en"		"Unknown item \"{1}\". Use !give without arguments to open the menu."
+	}
+	"No_Match"
+	{
+		"#format"	"{1:s}"
+		"en"		"No alive survivor matched \"{1}\"."
+	}
+	"Usage"
+	{
+		"en"		"Usage: sm_give <item> <target>"
+	}
+	"Cat_0"
+	{
+		"en"		"Health"
+	}
+	"Cat_1"
+	{
+		"en"		"Throwables"
+	}
+	"Cat_2"
+	{
+		"en"		"Primary weapons"
+	}
+	"Cat_3"
+	{
+		"en"		"Secondary weapons"
+	}
+	"Cat_4"
+	{
+		"en"		"Other"
+	}
+	"first_aid_kit"
+	{
+		"en"		"Medkit"
+	}
+	"defibrillator"
+	{
+		"en"		"Defibrillator"
+	}
+	"pain_pills"
+	{
+		"en"		"Pain pills"
+	}
+	"adrenaline"
+	{
+		"en"		"Adrenaline"
+	}
+	"health"
+	{
+		"en"		"Full health"
+	}
+	"pipe_bomb"
+	{
+		"en"		"Pipe bomb"
+	}
+	"molotov"
+	{
+		"en"		"Molotov"
+	}
+	"vomitjar"
+	{
+		"en"		"Bile jar"
+	}
+	"smg"
+	{
+		"en"		"SMG"
+	}
+	"smg_silenced"
+	{
+		"en"		"Silenced SMG"
+	}
+	"pumpshotgun"
+	{
+		"en"		"Pump shotgun"
+	}
+	"shotgun_chrome"
+	{
+		"en"		"Chrome shotgun"
+	}
+	"rifle"
+	{
+		"en"		"M16"
+	}
+	"rifle_ak47"
+	{
+		"en"		"AK-47"
+	}
+	"rifle_desert"
+	{
+		"en"		"SCAR"
+	}
+	"autoshotgun"
+	{
+		"en"		"Auto shotgun"
+	}
+	"shotgun_spas"
+	{
+		"en"		"SPAS shotgun"
+	}
+	"hunting_rifle"
+	{
+		"en"		"Hunting rifle"
+	}
+	"sniper_military"
+	{
+		"en"		"Military sniper"
+	}
+	"pistol"
+	{
+		"en"		"Pistol"
+	}
+	"pistol_magnum"
+	{
+		"en"		"Magnum"
+	}
+	"katana"
+	{
+		"en"		"Katana"
+	}
+	"machete"
+	{
+		"en"		"Machete"
+	}
+	"fireaxe"
+	{
+		"en"		"Fire axe"
+	}
+	"crowbar"
+	{
+		"en"		"Crowbar"
+	}
+	"baseball_bat"
+	{
+		"en"		"Baseball bat"
+	}
+	"cricket_bat"
+	{
+		"en"		"Cricket bat"
+	}
+	"frying_pan"
+	{
+		"en"		"Frying pan"
+	}
+	"electric_guitar"
+	{
+		"en"		"Guitar"
+	}
+	"tonfa"
+	{
+		"en"		"Nightstick"
+	}
+	"golfclub"
+	{
+		"en"		"Golf club"
+	}
+	"knife"
+	{
+		"en"		"Knife"
+	}
+	"ammo"
+	{
+		"en"		"Ammo refill"
+	}
+	"upgradepack_incendiary"
+	{
+		"en"		"Incendiary ammo pack"
+	}
+	"upgradepack_explosive"
+	{
+		"en"		"Explosive ammo pack"
+	}
+	"laser_sight"
+	{
+		"en"		"Laser sight"
+	}
+}
