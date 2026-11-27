@@ -1,0 +1,114 @@
+"Phrases"
+{
+	"on"
+	{
+		"pt"		"{blue}ligado{default}"
+	}
+
+	"off"
+	{
+		"pt"		"{red}desligado{default}"
+	}
+
+	"Notify_SpechudState"
+	{
+		"pt"		"<{olive}HUD{default}> O HUD de espectador agora esta {1}"
+	}
+
+	"Notify_TankhudState"
+	{
+		"pt"		"<{olive}HUD{default}> O HUD do tank agora esta {1}"
+	}
+
+	"Notify_SpechudUsage"
+	{
+		"pt"		"<{olive}HUD{default}> Digite {green}!spechud{default} no chat para ligar/desligar o {blue}HUD de espectador"
+	}
+
+	"Notify_TankhudUsage"
+	{
+		"pt"		"<{olive}HUD{default}> Digite {green}!tankhud{default} no chat para ligar/desligar o {red}HUD do tank"
+	}
+
+	// ---- HUD (spechud.sp) ----
+	"HUD_Sur"
+	{
+		"pt"		"Sobr"
+	}
+	"HUD_Inf"
+	{
+		"pt"		"Inf"
+	}
+	"HUD_Dead"
+	{
+		"pt"		"Morto"
+	}
+	"HUD_Hang"
+	{
+		"pt"		"Pendurado"
+	}
+	"HUD_Ghost"
+	{
+		"pt"		"F"
+	}
+	"HUD_Fire"
+	{
+		"pt"		"Fogo"
+	}
+	"HUD_NoSI"
+	{
+		"pt"		"Sem SI."
+	}
+	"HUD_TankHUD"
+	{
+		"pt"		"HUD do Tank"
+	}
+	"HUD_Native"
+	{
+		"pt"		"original"
+	}
+	"HUD_Ctrl"
+	{
+		"pt"		"Controle"
+	}
+	"HUD_AI"
+	{
+		"pt"		"IA"
+	}
+	"HUD_Net"
+	{
+		"pt"		"Rede"
+	}
+	"HUD_RoundNum"
+	{
+		"pt"		"T#"
+	}
+	"HUD_Static"
+	{
+		"pt"		"Fixo"
+	}
+	"HUD_Event"
+	{
+		"pt"		"Evento"
+	}
+	"HUD_Cur"
+	{
+		"pt"		"Atual"
+	}
+	"HUD_Ord1"
+	{
+		"pt"		"{1}º"
+	}
+	"HUD_Ord2"
+	{
+		"pt"		"{1}º"
+	}
+	"HUD_Ord3"
+	{
+		"pt"		"{1}º"
+	}
+	"HUD_OrdN"
+	{
+		"pt"		"{1}º"
+	}
+}

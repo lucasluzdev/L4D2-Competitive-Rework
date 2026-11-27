@@ -1,0 +1,24 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"en"		"{default}[{olive}Boss{default}]"
+	}
+	"Rerolled"
+	{
+		"#format"	"{1:N},{2:d},{3:d}"
+		"en"		"{blue}{1}{default} rerolled the bosses -> Tank: {green}{2}%%{default} | Witch: {green}{3}%%{default}"
+	}
+	"LeftSafeArea"
+	{
+		"en"		"Survivors already left the saferoom."
+	}
+	"SecondHalf"
+	{
+		"en"		"Bosses can only be rerolled in the first half (the second half uses the same spawns)."
+	}
+	"NoTankifier"
+	{
+		"en"		"witch_and_tankifier is not loaded."
+	}
+}

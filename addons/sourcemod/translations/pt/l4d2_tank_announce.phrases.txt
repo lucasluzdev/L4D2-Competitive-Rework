@@ -1,0 +1,15 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"pt"	"{red}[{default}!{red}]"
+	}
+	"Spawned"
+	{
+		"pt"	"Um {olive}Tank {default}nasceu! ({red}Controle: %s{default})"
+	}
+	"Spawned2"
+	{
+		"pt"	"Um {olive}Tank {default}nasceu! ({red}Controle: %N{default})"
+	}
+}

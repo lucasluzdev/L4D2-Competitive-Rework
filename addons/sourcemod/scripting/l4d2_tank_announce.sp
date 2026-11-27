@@ -23,9 +23,19 @@ public Plugin myinfo =
 	url = "https://github.com/SirPlease/L4D2-Competitive-Rework"
 };
 
+// Off when another plugin already plays the spawn sound (l4d_tank_damage_announce plays the same one).
+ConVar g_hCvarSound;
+
 public void OnPluginStart()
 {
 	LoadTranslations("l4d2_tank_announce.phrases");
+	g_hCvarSound = CreateConVar("l4d2_tank_announce_sound", "1", "Play a sound when a Tank spawns", FCVAR_NOTIFY, true, 0.0, true, 1.0);
+}
+
+void PlaySpawnSound()
+{
+	if (g_hCvarSound.BoolValue)
+		EmitSoundToAll(DANG);
 }
 
 public void OnMapStart()
@@ -65,7 +75,7 @@ public void L4D_OnSpawnTank_Post(int client, const float vecPos[3], const float 
 	}
 	
 	CPrintToChatAll("%t", "Spawned", nameBuf);
-	EmitSoundToAll(DANG);
+	PlaySpawnSound();
 }
 
 void Event_PlayerSpawn(Event event, char[] name, bool dontBroadcast)
@@ -76,7 +86,7 @@ void Event_PlayerSpawn(Event event, char[] name, bool dontBroadcast)
 	if (IsTank(client) && !IsFakeClient(client))
 	{
 		CPrintToChatAll("%t", "Spawned2", client);
-		EmitSoundToAll(DANG);
+		PlaySpawnSound();
 		UnhookEvent("player_spawn", Event_PlayerSpawn);
 	}
 }

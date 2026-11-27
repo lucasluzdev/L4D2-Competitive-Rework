@@ -1,0 +1,47 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"en"		"{default}[{olive}Tank{default}]"
+	}
+	"Moved"
+	{
+		"#format"	"{1:N}"
+		"en"		"{blue}{1}{default} moved the tank to a new position."
+	}
+	"Spawned"
+	{
+		"#format"	"{1:N}"
+		"en"		"{blue}{1}{default} spawned a tank."
+	}
+	"SpawnedFor"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{blue}{1}{default} spawned a tank for {olive}{2}{default}."
+	}
+	"NoTank"
+	{
+		"en"		"There is no tank alive. Use !spawntank to spawn one."
+	}
+	"TankAlive"
+	{
+		"en"		"A tank is already alive. Use !fixtank to move it."
+	}
+	"NoPosition"
+	{
+		"en"		"No valid position found. Aim at the ground and use !spawntankhere or !fixtank here."
+	}
+	"SpawnFailed"
+	{
+		"en"		"The game failed to spawn the tank."
+	}
+	"NotInfected"
+	{
+		"#format"	"{1:N}"
+		"en"		"{1} is not on the infected team."
+	}
+	"InGameOnly"
+	{
+		"en"		"This option can only be used in-game."
+	}
+}

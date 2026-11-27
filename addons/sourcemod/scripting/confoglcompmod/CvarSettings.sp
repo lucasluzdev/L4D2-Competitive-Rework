@@ -22,7 +22,9 @@ enum struct CVSPending
 }
 
 static bool
-	bTrackingStarted = false;
+	bTrackingStarted = false,
+	bApplyingCvars = false,	// true while confogl itself sets the enforced values (no announce)
+	bInTransition = false;	// round_end -> round_start + 1s: the game re-applies its own mode cvars here
 
 static ArrayList
 	CvarSettingsArray = null,
@@ -48,11 +50,22 @@ void CVS_OnModuleStart()
 	// to their defaults. Enforced cvars were only re-applied on map change, so re-apply them on
 	// every round start too.
 	HookEvent("round_start", CVS_RoundStart_Event, EventHookMode_PostNoCopy);
+
+	// On every round restart L4D2 re-applies the "convar" block of the current mode from Valve's
+	// gamemodes file (versus: z_ghost_delay_max 24, tank_burn_duration 90, ...). Changes made by the
+	// game during the round transition are reverted silently instead of being announced in chat.
+	HookEvent("round_end", CVS_RoundEnd_Event, EventHookMode_PostNoCopy);
+}
+
+static void CVS_RoundEnd_Event(Event hEvent, const char[] sEventName, bool bDontBroadcast)
+{
+	bInTransition = true;
 }
 
 static void CVS_RoundStart_Event(Event hEvent, const char[] sEventName, bool bDontBroadcast)
 {
 	if (bTrackingStarted) {
+		bInTransition = true;
 		// Small delay so the game finishes its own reset before we re-apply.
 		CreateTimer(1.0, CVS_ReapplyCvars_Timer, _, TIMER_FLAG_NO_MAPCHANGE);
 	}
@@ -64,6 +77,7 @@ static Action CVS_ReapplyCvars_Timer(Handle hTimer)
 		SetEnforcedCvars();
 	}
 
+	bInTransition = false;
 	return Plugin_Stop;
 }
 
@@ -255,6 +269,7 @@ static void SetEnforcedCvars()
 
 	CVSEntry cvsetting;
 
+	bApplyingCvars = true;
 	for (int i = 0; i < iSize; i++) {
 		CvarSettingsArray.GetArray(i, cvsetting, sizeof(cvsetting));
 
@@ -266,6 +281,7 @@ static void SetEnforcedCvars()
 
 		(cvsetting.CVSE_cvar).SetString(cvsetting.CVSE_newval);
 	}
+	bApplyingCvars = false;
 }
 
 static void AddCvar(const char[] cvar, const char[] newval)
@@ -376,11 +392,57 @@ static void ResolvePendingCvars()
 	}
 }
 
+// Index of a tracked cvar in CvarSettingsArray, or -1.
+static int FindTrackedCvar(ConVar hConVar, CVSEntry cvsetting)
+{
+	int iSize = CvarSettingsArray.Length;
+	for (int i = 0; i < iSize; i++) {
+		CvarSettingsArray.GetArray(i, cvsetting, sizeof(cvsetting));
+		if (cvsetting.CVSE_cvar == hConVar) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+static bool IsNumericString(const char[] s)
+{
+	float f;
+	return (s[0] != '\0' && StringToFloatEx(s, f) == strlen(s));
+}
+
+static bool IsSameCvarValue(const char[] a, const char[] b)
+{
+	return (strcmp(a, b) == 0 || (IsNumericString(a) && IsNumericString(b) && StringToFloat(a) == StringToFloat(b)));
+}
+
+static void CVS_RevertCvar_Frame(ConVar hConVar)
+{
+	CVSEntry cvsetting;
+	if (!bTrackingStarted || FindTrackedCvar(hConVar, cvsetting) == -1) {
+		return;
+	}
+
+	bApplyingCvars = true;
+	hConVar.SetString(cvsetting.CVSE_newval);
+	bApplyingCvars = false;
+}
+
 static void CVS_ConVarChange(ConVar hConVar, const char[] sOldValue, const char[] sNewValue)
 {
-	if (bTrackingStarted) {
+	if (bTrackingStarted && !bApplyingCvars) {
 		char sName[CVS_CVAR_MAXLEN];
 		hConVar.GetName(sName, sizeof(sName));
+
+		if (bInTransition) {
+			// Game re-applying its mode cvars on round restart: put our value back, quietly.
+			CVSEntry cvsetting;
+			if (FindTrackedCvar(hConVar, cvsetting) != -1 && !IsSameCvarValue(sNewValue, cvsetting.CVSE_newval)) {
+				PrintToServer("[Confogl] Round transition: '%s' reset by the game to '%s', restoring '%s'.", sName, sNewValue, cvsetting.CVSE_newval);
+				RequestFrame(CVS_RevertCvar_Frame, hConVar);
+			}
+			return;
+		}
 
 		PrintToServer("[Confogl] Tracked Server CVar '%s' changed from '%s' to '%s' !!!", sName, sOldValue, sNewValue);
 		//PrintToChatAll("[Confogl] Tracked Server CVar '%s' changed from '%s' to '%s' !!!", sName, sOldValue, sNewValue);

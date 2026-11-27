@@ -1,0 +1,23 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"es"		"{default}[{olive}Boss{default}]"
+	}
+	"Rerolled"
+	{
+		"es"		"{blue}{1}{default} volvio a sortear los bosses -> Tank: {green}{2}%%{default} | Witch: {green}{3}%%{default}"
+	}
+	"LeftSafeArea"
+	{
+		"es"		"Los supervivientes ya salieron de la sala segura."
+	}
+	"SecondHalf"
+	{
+		"es"		"Solo se puede sortear en la primera mitad (la segunda usa los mismos spawns)."
+	}
+	"NoTankifier"
+	{
+		"es"		"witch_and_tankifier no esta cargado."
+	}
+}

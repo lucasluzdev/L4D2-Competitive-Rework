@@ -1,0 +1,16 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"en"		"{default}[{red}Tank Rage{default}]"
+	}
+	"RefilledSelf"
+	{
+		"en"		"Your frustration was {olive}refilled{default}. Next time it runs out, the Tank goes to the {red}AI{default}."
+	}
+	"Refilled"
+	{
+		"#format"	"{1:N}"
+		"en"		"{red}{1}{default}'s frustration was {olive}refilled{default}. Next time, the Tank goes to the {red}AI{default}."
+	}
+}

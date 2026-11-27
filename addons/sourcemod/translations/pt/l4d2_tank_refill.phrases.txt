@@ -1,0 +1,15 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"pt"		"{default}[{red}Tank Rage{default}]"
+	}
+	"RefilledSelf"
+	{
+		"pt"		"Sua frustracao foi {olive}recarregada{default}. Se zerar de novo, o Tank vai para a {red}IA{default}."
+	}
+	"Refilled"
+	{
+		"pt"		"A frustracao de {red}{1}{default} foi {olive}recarregada{default}. Na proxima, o Tank vai para a {red}IA{default}."
+	}
+}

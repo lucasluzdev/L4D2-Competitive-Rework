@@ -1,0 +1,43 @@
+"Phrases"
+{
+	"Tag"
+	{
+		"pt"		"{default}[{olive}Tank{default}]"
+	}
+	"Moved"
+	{
+		"pt"		"{blue}{1}{default} moveu o tank para uma nova posicao."
+	}
+	"Spawned"
+	{
+		"pt"		"{blue}{1}{default} spawnou um tank."
+	}
+	"SpawnedFor"
+	{
+		"pt"		"{blue}{1}{default} spawnou um tank para {olive}{2}{default}."
+	}
+	"NoTank"
+	{
+		"pt"		"Nao ha tank vivo. Use !spawntank para spawnar um."
+	}
+	"TankAlive"
+	{
+		"pt"		"Ja existe um tank vivo. Use !fixtank para move-lo."
+	}
+	"NoPosition"
+	{
+		"pt"		"Nenhuma posicao valida encontrada. Mire no chao e use !spawntankhere ou !fixtank here."
+	}
+	"SpawnFailed"
+	{
+		"pt"		"O jogo nao conseguiu spawnar o tank."
+	}
+	"NotInfected"
+	{
+		"pt"		"{1} nao esta no time dos infectados."
+	}
+	"InGameOnly"
+	{
+		"pt"		"Esta opcao so pode ser usada dentro do jogo."
+	}
+}

@@ -45,6 +45,7 @@ int g_Gamemode;
 
 // Game Var
 ConVar survivor_limit, versus_boss_buffer, sv_maxplayers, tank_burn_duration;
+ConVar g_hCvarDefaultOn; // spechud_default_on: spectator HUD starts enabled for everyone (Vanilla+)
 int iSurvivorLimit, iMaxPlayers;
 float fVersusBossBuffer, fTankBurnDuration;
 
@@ -86,10 +87,30 @@ bool bSpecHudHintShown[MAXPLAYERS+1], bTankHudHintShown[MAXPLAYERS+1];
 // ======================================================================
 //  Plugin Start
 // ======================================================================
+// lerpmonitor.inc names its SharedPlugin "__lerpmonitor" (not "__pl_lerpmonitor"), so its
+// SetNTVOptional is never called and LM_* would be hard requirements. Mark them optional here.
+public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
+{
+	MarkNativeAsOptional("LM_GetLerpTime");
+	MarkNativeAsOptional("LM_GetCurrentLerpTime");
+	MarkNativeAsOptional("LM_GetStoredLerpTime");
+	return APLRes_Success;
+}
+
+// The mode config sets spechud_default_on after the plugin loads, so apply it to everyone already connected.
+void DefaultOnChanged(ConVar convar, const char[] oldValue, const char[] newValue)
+{
+	for (int i = 1; i <= MaxClients; ++i)
+		bSpecHudActive[i] = convar.BoolValue;
+}
+
 public void OnPluginStart()
 {
 	LoadPluginTranslations();
-	
+
+	g_hCvarDefaultOn = CreateConVar("spechud_default_on", "0", "Spectator HUD starts enabled for every player (they can still turn it off with !spechud)", FCVAR_NOTIFY, true, 0.0, true, 1.0);
+	g_hCvarDefaultOn.AddChangeHook(DefaultOnChanged);
+
 	(	survivor_limit			= FindConVar("survivor_limit")			).AddChangeHook(GameConVarChanged);
 	(	versus_boss_buffer		= FindConVar("versus_boss_buffer")		).AddChangeHook(GameConVarChanged);
 	(	sv_maxplayers			= FindConVar("sv_maxplayers")			).AddChangeHook(GameConVarChanged);
@@ -114,7 +135,7 @@ public void OnPluginStart()
 	
 	for (int i = 1; i <= MaxClients; ++i)
 	{
-		bSpecHudActive[i] = false;
+		bSpecHudActive[i] = g_hCvarDefaultOn.BoolValue; // keeps its value across plugin reloads
 		bSpecHudHintShown[i] = false;
 		bTankHudActive[i] = true;
 		bTankHudHintShown[i] = false;
@@ -436,7 +457,7 @@ void Event_PlayerTeam(Event event, const char[] name, bool dontBroadcast)
 	
 	if (team == L4D2Team_None) // Player disconnecting
 	{
-		bSpecHudActive[client] = false;
+		bSpecHudActive[client] = g_hCvarDefaultOn.BoolValue;
 		bTankHudActive[client] = true;
 	}
 	
@@ -520,10 +541,19 @@ Action HudDrawTimer(Handle hTimer)
 		}
 	}
 	
-	if (specHud_total) // Only bother if someone's watching us
+	// The HUD text is translated, so one panel is built per language among the viewers
+	// (SetGlobalTransTarget makes every "%t" in the Fill* functions use that language).
+	bool[] done = new bool[MaxClients];
+
+	for (int i = 0; i < specHud_total; ++i) // Only bother if someone's watching us
 	{
+		if (done[i]) continue;
+
+		int lang = GetClientLanguage(specHud_clients[i]);
+		SetGlobalTransTarget(specHud_clients[i]);
+
 		Panel specHud = new Panel();
-		
+
 		FillHeaderInfo(specHud);
 		FillSurvivorInfo(specHud);
 		FillScoreInfo(specHud);
@@ -531,15 +561,18 @@ Action HudDrawTimer(Handle hTimer)
 		if (!FillTankInfo(specHud))
 			FillGameInfo(specHud);
 
-		for (int i = 0; i < specHud_total; ++i)
+		for (int j = i; j < specHud_total; ++j)
 		{
-			int client = specHud_clients[i];
-			
+			int client = specHud_clients[j];
+			if (done[j] || GetClientLanguage(client) != lang)
+				continue;
+			done[j] = true;
+
 			switch (GetClientMenu(client))
 			{
 				case MenuSource_External, MenuSource_Normal: continue;
 			}
-			
+
 			specHud.Send(client, DummySpecHudHandler, 3);
 			if (!bSpecHudHintShown[client])
 			{
@@ -549,21 +582,33 @@ Action HudDrawTimer(Handle hTimer)
 		}
 		delete specHud;
 	}
-	
-	if (!tankHud_total) return Plugin_Continue;
-	
-	Panel tankHud = new Panel();
-	if (FillTankInfo(tankHud, true)) // No tank -- no HUD
+
+	for (int i = 0; i < tankHud_total; ++i) done[i] = false;
+
+	for (int i = 0; i < tankHud_total; ++i)
 	{
-		for (int i = 0; i < tankHud_total; ++i)
+		if (done[i]) continue;
+
+		int lang = GetClientLanguage(tankHud_clients[i]);
+		SetGlobalTransTarget(tankHud_clients[i]);
+
+		Panel tankHud = new Panel();
+		bool bHasTank = FillTankInfo(tankHud, true); // No tank -- no HUD
+
+		for (int j = i; j < tankHud_total; ++j)
 		{
-			int client = tankHud_clients[i];
-			
+			int client = tankHud_clients[j];
+			if (done[j] || GetClientLanguage(client) != lang)
+				continue;
+			done[j] = true;
+
+			if (!bHasTank) continue;
+
 			switch (GetClientMenu(client))
 			{
 				case MenuSource_External, MenuSource_Normal: continue;
 			}
-			
+
 			tankHud.Send(client, DummyTankHudHandler, 3);
 			if (!bTankHudHintShown[client])
 			{
@@ -571,10 +616,22 @@ Action HudDrawTimer(Handle hTimer)
 				CPrintToChat(client, "%t", "Notify_TankhudUsage");
 			}
 		}
+		delete tankHud;
 	}
-	
-	delete tankHud;
+
 	return Plugin_Continue;
+}
+
+// Ordinal in the current translation target's language (1st / 1o ...).
+void GetOrdinal(int n, char[] buffer, int maxlen)
+{
+	switch (n)
+	{
+		case 1: FormatEx(buffer, maxlen, "%t", "HUD_Ord1", n);
+		case 2: FormatEx(buffer, maxlen, "%t", "HUD_Ord2", n);
+		case 3: FormatEx(buffer, maxlen, "%t", "HUD_Ord3", n);
+		default: FormatEx(buffer, maxlen, "%t", "HUD_OrdN", n);
+	}
 }
 
 int DummySpecHudHandler(Menu hMenu, MenuAction action, int param1, int param2) { return 1; }
@@ -721,12 +778,12 @@ void FillSurvivorInfo(Panel hSpecHud)
 		{
 			if (bRoundLive)
 			{
-				FormatEx(info, sizeof(info), "->1. Sur [%d]",
+				FormatEx(info, sizeof(info), "->1. %t [%d]", "HUD_Sur",
 							L4D2Direct_GetVSCampaignScore(SurvivorTeamIndex) + GetVersusProgressDistance(SurvivorTeamIndex));
 			}
 			else
 			{
-				FormatEx(info, sizeof(info), "->1. Sur [%d]",
+				FormatEx(info, sizeof(info), "->1. %t [%d]", "HUD_Sur",
 							L4D2Direct_GetVSCampaignScore(SurvivorTeamIndex));
 			}
 		}
@@ -755,21 +812,23 @@ void FillSurvivorInfo(Panel hSpecHud)
 		GetClientPing(client, latency, sizeof(latency));
 		if (!IsPlayerAlive(client))
 		{
-			FormatEx(info, sizeof(info), "%s | %s: Dead", latency, name);
+			FormatEx(info, sizeof(info), "%s | %s: %t", latency, name, "HUD_Dead");
 		}
 		else
 		{
 			if (IsHangingFromLedge(client))
 			{
 				// Nick: <300HP@Hanging>
-				FormatEx(info, sizeof(info), "%s | %s: <%iHP@Hang>", latency, name, GetClientHealth(client));
+				FormatEx(info, sizeof(info), "%s | %s: <%iHP@%t>", latency, name, GetClientHealth(client), "HUD_Hang");
 			}
 			else if (IsIncapacitated(client))
 			{
 				int activeWep = GetEntPropEnt(client, Prop_Send, "m_hActiveWeapon");
 				GetLongWeaponName(IdentifyWeapon(activeWep), info, sizeof(info));
 				// Nick: <300HP@1st> [Deagle 8]
-				Format(info, sizeof(info), "%s | %s: <%iHP@%s> [%s %i]", latency, name, GetClientHealth(client), (GetSurvivorIncapCount(client) == 1 ? "2nd" : "1st"), info, GetWeaponClipAmmo(activeWep));
+				char ord[8];
+				GetOrdinal(GetSurvivorIncapCount(client) == 1 ? 2 : 1, ord, sizeof(ord));
+				Format(info, sizeof(info), "%s | %s: <%iHP@%s> [%s %i]", latency, name, GetClientHealth(client), ord, info, GetWeaponClipAmmo(activeWep));
 			}
 			else
 			{
@@ -788,7 +847,9 @@ void FillSurvivorInfo(Panel hSpecHud)
 				{
 					// Player ever incapped should always be bleeding.
 					// Nick: 99HP (#1st) [Chrome 8/72]
-					Format(info, sizeof(info), "%s | %s: %iHP (#%s) [%s]", latency, name, health, (incapCount == 2 ? "2nd" : "1st"), info);
+					char ord[8];
+					GetOrdinal(incapCount == 2 ? 2 : 1, ord, sizeof(ord));
+					Format(info, sizeof(info), "%s | %s: %iHP (#%s) [%s]", latency, name, health, ord, info);
 				}
 			}
 		}
@@ -936,7 +997,7 @@ void FillInfectedInfo(Panel hSpecHud)
 		}
 		case GAMEMODE_VERSUS:
 		{
-			FormatEx(info, sizeof(info), "->2. Inf [%d]",
+			FormatEx(info, sizeof(info), "->2. %t [%d]", "HUD_Inf",
 						L4D2Direct_GetVSCampaignScore(InfectedTeamIndex));
 		}
 	}
@@ -958,13 +1019,13 @@ void FillInfectedInfo(Panel hSpecHud)
 			if (timeLeft < 0) // Deathcam
 			{
 				// verygood: Dead
-				FormatEx(info, sizeof(info), "%s | %s: Dead", latency, name);
+				FormatEx(info, sizeof(info), "%s | %s: %t", latency, name, "HUD_Dead");
 			}
 			else // Ghost Countdown
 			{
 				FormatEx(buffer, sizeof(buffer), "%is", timeLeft);
 				// verygood: Dead (15s)
-				FormatEx(info, sizeof(info), "%s | %s: Dead (%s)", latency, name, (timeLeft ? buffer : "S"));
+				FormatEx(info, sizeof(info), "%s | %s: %t (%s)", latency, name, "HUD_Dead", (timeLeft ? buffer : "S"));
 				
 				//char zClassName[10];
 				//GetInfectedClassName(storedClass[client], zClassName, sizeof zClassName);
@@ -992,12 +1053,12 @@ void FillInfectedInfo(Panel hSpecHud)
 				if (iHP < iMaxHP)
 				{
 					// verygood: Charger (G@1HP)
-					FormatEx(info, sizeof(info), "%s | %s: %s (G@%iHP)", latency, name, zClassName, iHP);
+					FormatEx(info, sizeof(info), "%s | %s: %s (%t@%iHP)", latency, name, zClassName, "HUD_Ghost", iHP);
 				}
 				else
 				{
 					// verygood: Charger (G)
-					FormatEx(info, sizeof(info), "%s | %s: %s (G)", latency, name, zClassName);
+					FormatEx(info, sizeof(info), "%s | %s: %s (%t)", latency, name, zClassName, "HUD_Ghost");
 				}
 			}
 			else
@@ -1021,7 +1082,7 @@ void FillInfectedInfo(Panel hSpecHud)
 				if (GetEntityFlags(client) & FL_ONFIRE)
 				{
 					// verygood: Charger (1HP) [On Fire] [6s]
-					FormatEx(info, sizeof(info), "%s | %s: %s (%iHP) [Fire]%s", latency, name, zClassName, iHP, buffer);
+					FormatEx(info, sizeof(info), "%s | %s: %s (%iHP) [%t]%s", latency, name, zClassName, iHP, "HUD_Fire", buffer);
 				}
 				else
 				{
@@ -1037,7 +1098,9 @@ void FillInfectedInfo(Panel hSpecHud)
 	
 	if (!infectedCount)
 	{
-		DrawPanelText(hSpecHud, "No SI.");
+		char noSI[32];
+		FormatEx(noSI, sizeof(noSI), "%t", "HUD_NoSI");
+		DrawPanelText(hSpecHud, noSI);
 	}
 }
 
@@ -1052,7 +1115,7 @@ bool FillTankInfo(Panel hSpecHud, bool bTankHUD = false)
 
 	if (bTankHUD)
 	{
-		FormatEx(info, sizeof(info), "%s :: Tank HUD", sReadyCfgName);
+		FormatEx(info, sizeof(info), "%s :: %t", sReadyCfgName, "HUD_TankHUD");
 		ValvePanel_ShiftInvalidString(info, sizeof(info));
 		DrawPanelText(hSpecHud, info);
 		
@@ -1068,23 +1131,19 @@ bool FillTankInfo(Panel hSpecHud, bool bTankHUD = false)
 
 	// Draw owner & pass counter
 	int passCount = L4D2Direct_GetTankPassedCount();
-	switch (passCount)
-	{
-		case 0: strcopy(info, sizeof(info), "native");
-		case 1: FormatEx(info, sizeof(info), "%ist", passCount);
-		case 2: FormatEx(info, sizeof(info), "%ind", passCount);
-		case 3: FormatEx(info, sizeof(info), "%ird", passCount);
-		default: FormatEx(info, sizeof(info), "%ith", passCount);
-	}
+	if (passCount == 0)
+		FormatEx(info, sizeof(info), "%t", "HUD_Native");
+	else
+		GetOrdinal(passCount, info, sizeof(info));
 
 	if (!IsFakeClient(tank))
 	{
 		GetClientFixedName(tank, name, sizeof(name));
-		Format(info, sizeof(info), "Ctrl: %s (%s)", name, info);
+		Format(info, sizeof(info), "%t: %s (%s)", "HUD_Ctrl", name, info);
 	}
 	else
 	{
-		Format(info, sizeof(info), "Ctrl: AI (%s)", info);
+		Format(info, sizeof(info), "%t: %t (%s)", "HUD_Ctrl", "HUD_AI", info);
 	}
 	DrawPanelText(hSpecHud, info);
 
@@ -1096,7 +1155,7 @@ bool FillTankInfo(Panel hSpecHud, bool bTankHUD = false)
 	
 	if (health <= 0 || isIncapacitated)
 	{
-		info = "HP: Dead";
+		FormatEx(info, sizeof(info), "HP: %t", "HUD_Dead");
 	}
 	else
 	{
@@ -1111,18 +1170,22 @@ bool FillTankInfo(Panel hSpecHud, bool bTankHUD = false)
 	}
 	else
 	{
-		info = "Frust: AI";
+		FormatEx(info, sizeof(info), "Frust: %t", "HUD_AI");
 	}
 	DrawPanelText(hSpecHud, info);
 
 	// Draw network
 	if (!IsFakeClient(tank))
 	{
-		FormatEx(info, sizeof(info), "Net: %ims / %.1f", RoundToNearest(GetClientAvgLatency(tank, NetFlow_Both) * 1000.0), LM_GetLerpTime(tank) * 1000.0);
+		// lerpmonitor is optional (not loaded in Vanilla+): show only the ping without it.
+		if (GetFeatureStatus(FeatureType_Native, "LM_GetLerpTime") == FeatureStatus_Available)
+			FormatEx(info, sizeof(info), "%t: %ims / %.1f", "HUD_Net", RoundToNearest(GetClientAvgLatency(tank, NetFlow_Both) * 1000.0), LM_GetLerpTime(tank) * 1000.0);
+		else
+			FormatEx(info, sizeof(info), "%t: %ims", "HUD_Net", RoundToNearest(GetClientAvgLatency(tank, NetFlow_Both) * 1000.0));
 	}
 	else
 	{
-		info = "Net: AI";
+		FormatEx(info, sizeof(info), "%t: %t", "HUD_Net", "HUD_AI");
 	}
 	DrawPanelText(hSpecHud, info);
 
@@ -1130,7 +1193,7 @@ bool FillTankInfo(Panel hSpecHud, bool bTankHUD = false)
 	if (!isIncapacitated && GetEntityFlags(tank) & FL_ONFIRE)
 	{
 		int timeleft = RoundToCeil(healthPercent / 100.0 * fTankBurnDuration);
-		FormatEx(info, sizeof(info), "Fire: %is", timeleft);
+		FormatEx(info, sizeof(info), "%t: %is", "HUD_Fire", timeleft);
 		DrawPanelText(hSpecHud, info);
 	}
 	
@@ -1158,7 +1221,7 @@ void FillGameInfo(Panel hSpecHud)
 		
 		case GAMEMODE_VERSUS:
 		{
-			FormatEx(info, sizeof(info), "->3. %s (R#%d)", sReadyCfgName, 1 + view_as<int>(InSecondHalfOfRound()));
+			FormatEx(info, sizeof(info), "->3. %s (%t%d)", sReadyCfgName, "HUD_RoundNum", 1 + view_as<int>(InSecondHalfOfRound()));
 			DrawPanelText(hSpecHud, " ");
 			DrawPanelText(hSpecHud, info);
 			
@@ -1182,7 +1245,7 @@ void FillGameInfo(Panel hSpecHud)
 					}
 					else
 					{
-						FormatEx(info, sizeof(info), "Tank: %s", (bStaticTank ? "Static" : "Event"));
+						FormatEx(info, sizeof(info), "Tank: %t", (bStaticTank ? "HUD_Static" : "HUD_Event"));
 					}
 				}
 				
@@ -1192,18 +1255,22 @@ void FillGameInfo(Panel hSpecHud)
 					FormatEx(buffer, sizeof(buffer), "%i%%", iWitchFlow);
 					
 					if (bDivide) {
-						Format(info, sizeof(info), "%s | Witch: %s", info, ((bRoundHasFlowWitch || bCustomBossSys) ? buffer : (bStaticWitch ? "Static" : "Event")));
+						if (!(bRoundHasFlowWitch || bCustomBossSys))
+							FormatEx(buffer, sizeof(buffer), "%t", (bStaticWitch ? "HUD_Static" : "HUD_Event"));
+						Format(info, sizeof(info), "%s | Witch: %s", info, buffer);
 					} else {
 						bDivide = true;
-						FormatEx(info, sizeof(info), "Witch: %s", ((bRoundHasFlowWitch || bCustomBossSys) ? buffer : (bStaticWitch ? "Static" : "Event")));
+						if (!(bRoundHasFlowWitch || bCustomBossSys))
+							FormatEx(buffer, sizeof(buffer), "%t", (bStaticWitch ? "HUD_Static" : "HUD_Event"));
+						FormatEx(info, sizeof(info), "Witch: %s", buffer);
 					}
 				}
 				
 				// current
 				if (bDivide) {
-					Format(info, sizeof(info), "%s | Cur: %i%%", info, survivorFlow);
+					Format(info, sizeof(info), "%s | %t: %i%%", info, "HUD_Cur", survivorFlow);
 				} else {
-					FormatEx(info, sizeof(info), "Cur: %i%%", survivorFlow);
+					FormatEx(info, sizeof(info), "%t: %i%%", "HUD_Cur", survivorFlow);
 				}
 				
 				DrawPanelText(hSpecHud, info);

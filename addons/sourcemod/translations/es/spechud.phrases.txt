@@ -31,4 +31,86 @@
 	{
 		"es"		"<{olive}HUD{default}> Escribe {green}!tankhud{default} en el chat para cambiar el {red}HUD de tanque"
 	}
+
+	// ---- HUD (spechud.sp) ----
+	"HUD_Sur"
+	{
+		"es"		"Sup"
+	}
+	"HUD_Inf"
+	{
+		"es"		"Inf"
+	}
+	"HUD_Dead"
+	{
+		"es"		"Muerto"
+	}
+	"HUD_Hang"
+	{
+		"es"		"Colgado"
+	}
+	"HUD_Ghost"
+	{
+		"es"		"F"
+	}
+	"HUD_Fire"
+	{
+		"es"		"Fuego"
+	}
+	"HUD_NoSI"
+	{
+		"es"		"Sin SI."
+	}
+	"HUD_TankHUD"
+	{
+		"es"		"HUD del Tank"
+	}
+	"HUD_Native"
+	{
+		"es"		"original"
+	}
+	"HUD_Ctrl"
+	{
+		"es"		"Control"
+	}
+	"HUD_AI"
+	{
+		"es"		"IA"
+	}
+	"HUD_Net"
+	{
+		"es"		"Red"
+	}
+	"HUD_RoundNum"
+	{
+		"es"		"R#"
+	}
+	"HUD_Static"
+	{
+		"es"		"Fijo"
+	}
+	"HUD_Event"
+	{
+		"es"		"Evento"
+	}
+	"HUD_Cur"
+	{
+		"es"		"Actual"
+	}
+	"HUD_Ord1"
+	{
+		"es"		"{1}º"
+	}
+	"HUD_Ord2"
+	{
+		"es"		"{1}º"
+	}
+	"HUD_Ord3"
+	{
+		"es"		"{1}º"
+	}
+	"HUD_OrdN"
+	{
+		"es"		"{1}º"
+	}
 }
