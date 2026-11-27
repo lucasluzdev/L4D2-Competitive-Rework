@@ -48,19 +48,21 @@ bool
 
 float
 	g_fChargerMeleeDamage = -1.0,
-	g_fTankMeleeNerfDamage = -1.0;
+	g_fTankMeleeNerfDamage = -1.0,
+	g_fTankMeleeFixedDamage = -1.0;
 
 ConVar
 	g_hCvarMeleeDmgFix = null,
 	g_hCvarMeleeDmgCharger = null,
-	g_hCvarTankDmgMeleeNerfPercentage = null;
+	g_hCvarTankDmgMeleeNerfPercentage = null,
+	g_hCvarTankDmgMeleeFixed = null;
 
 public Plugin myinfo =
 {
 	name = "L4D2 Melee Damage Fix&Control",
 	description = "Fix melees weapons not applying correct damage values on infected. Allows manipulate melee damage on some infected.",
 	author = "Visor, Sir, A1m`",
-	version = "2.1",
+	version = "2.2",
 	url = "https://github.com/SirPlease/L4D2-Competitive-Rework"
 };
 
@@ -88,6 +90,15 @@ public void OnPluginStart()
 		_, false, 0.0, true, 100.0 \
 	);
 	
+	// Fixed melee damage per swing against the tank. Vanilla damage scales with the tank's max health
+	// (~5%: 6000 HP -> 300, 8001 HP -> 400). Takes priority over l4d2_melee_damage_tank_nerf.
+	g_hCvarTankDmgMeleeFixed = CreateConVar( \
+		"l4d2_melee_damage_tank", \
+		"-1.0", \
+		"Fixed melee damage dealt to the tank per swing, regardless of its health (a zero or negative value disables this).", \
+		_, false, 0.0, false, 0.0 \
+	);
+	
 	g_hCvarMeleeDmgCharger = CreateConVar( \
 		"l4d2_melee_damage_charger", \
 		"-1.0", \
@@ -100,6 +111,7 @@ public void OnPluginStart()
 	g_hCvarMeleeDmgFix.AddChangeHook(Cvars_Changed);
 	g_hCvarTankDmgMeleeNerfPercentage.AddChangeHook(Cvars_Changed);
 	g_hCvarMeleeDmgCharger.AddChangeHook(Cvars_Changed);
+	g_hCvarTankDmgMeleeFixed.AddChangeHook(Cvars_Changed);
 	
 	if (g_bLateLoad) {
 		for (int i = 1; i <= MaxClients; i++) {
@@ -120,6 +132,7 @@ void CvarsToType()
 	g_bMeleeDmgFixEnable = g_hCvarMeleeDmgFix.BoolValue;
 	g_fChargerMeleeDamage = g_hCvarMeleeDmgCharger.FloatValue;
 	g_fTankMeleeNerfDamage = g_hCvarTankDmgMeleeNerfPercentage.FloatValue;
+	g_fTankMeleeFixedDamage = g_hCvarTankDmgMeleeFixed.FloatValue;
 }
 
 public void OnClientPutInServer(int iClient)
@@ -175,6 +188,16 @@ Action Hook_OnTakeDamage(int iVictim, int &iAttacker, int &iInflictor, float &fD
 			return Plugin_Changed;
 		}
 	} else if (iZclass == L4D2Infected_Tank) {
+		if (g_fTankMeleeFixedDamage > 0.0) {
+			#if DEBUG
+				PrintToChatAll("[MeleeDmgControl] Tank: (%N) %d, attacker: (%N) %d, original damage: %f, set damage: %f", \
+										iVictim, iVictim, iAttacker, iAttacker, fDamage, g_fTankMeleeFixedDamage);
+			#endif
+			
+			fDamage = g_fTankMeleeFixedDamage;
+			return Plugin_Changed;
+		}
+		
 		if (g_fTankMeleeNerfDamage > 0.0) {
 		
 			#if DEBUG
